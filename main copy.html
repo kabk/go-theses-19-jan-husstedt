@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+#style-4::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+
+
+::-webkit-scrollbar { width: 5px;}
+::-webkit-scrollbar-button {  background-color: #000; }
+::-webkit-scrollbar-track {  background-color: transparent;}
+::-webkit-scrollbar-track-piece { background-color: transparent; border-left: 1px;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #000; border-radius: 3px;}
+
+@font-face {
+					 font-family: "Ginto Nord Black";
+					 src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Black.woff");
+				 }
+				 @font-face {
+				      			font-family: "Ginto Nord Bold";
+				      			src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Bold.woff");
+				    			}
+									@font-face {
+												 font-family: "Ginto Nord Medium";
+												 src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Medium.woff");
+											 }
+
+																@font-face {
+																					font-family: "Ginto Nord Regular";
+																					src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Regular.woff");
+																				}
+
+																				@font-face {
+																									font-family: "Ginto Nord Light";
+																									src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Light.woff");
+																								}
+
+
+
+
+
+
+
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+	width: 33%;
+  position: fixed;
+  z-index: 0;
+  overflow-x: hidden;
+
+}
+
+.slice {
+	height: 15%;
+	width: 100%;
+  position: fixed;
+  z-index: 0;
+  overflow-x: hidden;
+}
+/* Control the left side */
+.left {
+	left:0;
+	top: 0;
+	background-color: white;
+  /*border-left: 1px solid black;*/
+}
+
+/* Control the right side */
+.center {
+  left:33%;
+	top: 0;
+	background-color: white;
+  border-left: 1px solid black;
+}
+
+/* Control the right side */
+.right {
+  right:0;
+	top: 0;
+	background-color: white;
+  border-left: 1px solid black;
+}
+
+.bottom{
+	bottom: 0;
+	transform: translateX(-10px);
+	background-color: white;
+	border-top: 1px solid black;
+}
+
+.top{
+	top: 0;
+	transform: translateX(-10px);
+	background-color: white;
+	border-bottom: 1px solid black;
+}
+
+.content {
+  position: absolute;
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: left;
+}
+
+
+.chapter{
+    border-bottom: 1px solid black;
+
+
+}
+
+
+
+h1 {
+  font-family: "Ginto Nord Bold";
+  font-size: 3.5em;
+  line-height: .75em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Bold.woff");
+}
+
+.h1-blur {
+   color: transparent;
+   text-shadow: 0 0 2px rgba(0,0,0,1);
+   text-indent: ;
+   margin-left: 5%;
+	 transition: all ease 0.25s;
+	 -webkit-transition: all ease 0.25s;
+
+}
+
+.h1-blur:hover{
+	transform:translateY(5px);
+	-ms-transform:translateY(5px); /* prefix for IE 9 */
+	-webkit-transform:translateY(5px); /* prefix for Safari and Chrome */
+}
+
+h2 {
+  font-family: "Ginto Nord Black";
+  font-size: 1.5em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Black.woff");
+  padding-bottom: 10%;
+	padding-top: 3.25%;
+}
+
+h3 {
+	font-family: "Ginto Nord Medium";
+  font-size: 1.5em;
+	line-height: .85em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Medium.woff");
+}
+
+.h3-blur {
+	color: transparent;
+  text-shadow: 0 0 .5px rgba(0,0,0,1);
+
+  text-align: center;
+  margin-left: 5%;
+
+}
+
+h4 {
+	font-family: "Ginto Nord Regular";
+  font-size: .75em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Regular.woff");
+}
+
+h5 {
+	font-family: "Ginto Nord Regular";
+  font-size: .75em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Regular.woff");
+}
+
+.h5-blur {
+	color: transparent;
+  text-shadow: 0 0 0.1px rgba(0,0,0,1);
+
+  text-align: left;
+  margin-left: 5%;
+
+}
+
+p {
+  font-family: "Favorit";
+  font-size: 1.2	5em;
+  line-height: 1.25em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/favorit/Favorit-Light.otf");
+}
+</style>
+</head>
+<body>
+
+
+
+  <div class="split left">
+
+		<div class="chapter">
+			<h1>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+			</h1>
+		</div>
+
+  </div>
+</div>
+
+<div class="split center">
+
+	<div class="content">
+		<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+		</p>
+	</div>
+
+
+</div>
+
+
+<div class="split right">
+	<div class="footnotes">
+
+<img src="http://www.brooklynvegan.com/files/img/fp/lionelrichie.jpg" alt="">
+<img src="http://www.brooklynvegan.com/files/img/fp/lionelrichie.jpg" alt="">
+<img src="http://www.brooklynvegan.com/files/img/fp/lionelrichie.jpg" alt="">
+<img src="http://www.brooklynvegan.com/files/img/fp/lionelrichie.jpg" alt="">
+<img src="http://www.brooklynvegan.com/files/img/fp/lionelrichie.jpg" alt="">
+<img src="http://www.brooklynvegan.com/files/img/fp/lionelrichie.jpg" alt="">
+
+	</div>
+</div>
+
+<div class="slice top">
+	<div class="footnotes">
+		<h1 class="h1-blur">Horizontal split at the top.</h1>
+	</div>
+</div>
+
+<div class="slice bottom">
+	<div class="footnotes">
+		<h1 class="h1-blur">And another on the bottom.</h1>
+	</div>
+</div>
+
+
+</body>
+</html>

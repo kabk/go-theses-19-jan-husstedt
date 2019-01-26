@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+#style-4::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+
+
+::-webkit-scrollbar { width: 5px;}
+::-webkit-scrollbar-button {  background-color: #000; }
+::-webkit-scrollbar-track {  background-color: transparent;}
+::-webkit-scrollbar-track-piece { background-color: transparent; border-left: 1px;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #000; border-radius: 3px;}
+@font-face {
+					 font-family: "Galapagos A Light";
+					 src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/galapagos/GalapagosA-Light.otf");
+				 }
+				 @font-face {
+				 					 font-family: "Galapagos AB Light";
+				 					 src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/galapagos/GalapagosAB-Light.otf");
+				 				 }
+								 @font-face {
+								 					 font-family: "Galapagos ABC Light";
+								 					 src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/galapagos/GalapagosABC-Light.otf");
+								 				 }
+												 @font-face {
+												 					 font-family: "Galapagos A Regular";
+												 					 src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/galapagos/GalapagosA-Regular.otf");
+												 				 }
+												 				 @font-face {
+												 				 					 font-family: "Galapagos AB Regular";
+												 				 					 src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/galapagos/GalapagosAB-Regular.otf");
+												 				 				 }
+												 								 @font-face {
+												 								 					 font-family: "Galapagos ABC Regular";
+												 								 					 src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/galapagos/GalapagosABC-Regular.otf");
+												 								 				 }
+@font-face {
+					 font-family: "Ginto Nord Black";
+					 src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/ginto/GintoNordTrial-Black.woff");
+				 }
+				 @font-face {
+				      			font-family: "Ginto Nord Bold";
+				      			src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/ginto/GintoNordTrial-Bold.woff");
+				    			}
+									@font-face {
+												 font-family: "Ginto Nord Medium";
+												 src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/ginto/GintoNordTrial-Medium.woff");
+											 }
+											 @font-face {
+																					font-family: "Ginto Nord Regular";
+																					src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/ginto/GintoNordTrial-Regular.woff");
+																				}
+																				@font-face {
+																									font-family: "Ginto Nord Light";
+																									src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/ginto/GintoNordTrial-Light.woff");
+																								}
+																								@font-face {
+																													font-family: "Ginto Nord Thin";
+																													src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/ginto/GintoNordTrial-Thin.woff");
+																												}
+
+
+																												@font-face {
+																																	font-family: "Favorit Light";
+																																	src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/favorit/Favorit_Light.ttf");
+																																}
+																																@font-face {
+																																					font-family: "Favorit Mono Light";
+																																					src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/favorit/FavoritMono-Light.otf");
+																																				}
+																																				@font-face {
+																																									font-family: "Favorit Lining Light";
+																																									src: url("http://localhost:8888/three.js-master/driftcarefullyfinal/assets/type/favorit/FavoritLining-Light.otf");
+																																								}
+
+
+
+
+
+
+
+
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+	width: 40%;
+  position: fixed;
+  z-index: 0;
+  overflow-x: hidden;
+
+}
+
+.split2 {
+	height: 100%;
+	width:60%;
+	position: fixed;
+	z-index: 20000;
+	overflow-x: hidden;
+}
+
+
+.right2 {
+	right: 0;
+	top: 0;
+	background-color: white;
+  border-left: 0px solid black;
+}
+
+
+/* Control the left side */
+.left {
+	left:5;
+	top: 0;
+	background-color: white;
+  /*border-left: 1px solid black;*/
+}
+
+/* Control the right side */
+.right {
+  left:40%;
+	top: 0;
+	background-color: white;
+  border-left: 1px solid black;
+}
+
+
+.banner {
+	left:0;
+	background-color: white;
+	width:50px;
+	border-right: 1px solid black;
+	z-index:2;
+	overflow:hidden;
+}
+
+
+.footer {
+	position: fixed;
+	left:0;
+	bottom: 0;
+	width: 200%;
+	height: 75px;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	z-index:2;
+}
+
+.moved_left{
+	transform:translateY(55px);
+	-ms-transform:translateY(55px); /* prefix for IE 9 */
+	-webkit-transform:translateY(55px); /* prefix for Safari and Chrome */
+	  }
+
+		.index {
+			position: fixed;
+			left:0;
+			bottom: 76px;
+			width: 35%;
+			height: 55px;
+			background-color: white;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
+			z-index:1;
+			text-align:center;
+
+		}
+
+		.index2 {
+			position: fixed;
+			left:0;
+			bottom: 132px;
+			width: 35%;
+			height: 75px;
+			background-color: white;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
+			z-index:1;
+			text-align:center;
+
+		}
+
+		.index3 {
+			position: fixed;
+			left:35%;
+			bottom: 76px;
+			width: 15%;
+			height: 131px;
+			background-color: white;
+			border-top: 1px solid black;
+			border-left: 1px solid black;
+			z-index:1;
+			text-align:center;
+
+		}
+
+
+/* If you want the content centered horizontally and vertically */
+.menu {
+  position: absolute;
+  text-align: left;
+	margin-left: 5%;
+}
+
+/* Style the image inside the centered container, if needed */
+.menu img {
+  width: 250px;
+  border-radius: 5%;
+}
+
+.content {
+  position: absolute;
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: left;
+
+}
+
+.right2 img {
+  width: 250px;
+	margin-left: 25px;
+	margin-top: 25px;
+  border-radius: 0%;
+	-webkit-box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+	box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+}
+
+.right2 img:hover {
+  width: 250px;
+	margin-left: 30px;
+	margin-top: 20px;
+  border-radius: 0%;
+	-webkit-box-shadow: 0px 0px 7.5px 7.5px rgba(0,0,0,1);
+-moz-box-shadow: 0px 0px 7.5px 7.5px rgba(0,0,0,1);
+box-shadow: 0px 0px 7.5px 7.5px rgba(0,0,0,1);
+
+}
+
+.blur {
+   color: transparent;
+   text-shadow: 0 0 1px rgba(0,0,0,1);
+}
+
+.text-indent {
+  text-indent: 5em;
+}
+
+.image {
+
+	}
+
+
+
+.chapter{
+    border-bottom: 1px solid black;
+
+
+}
+
+.chapter:hover{
+
+}
+
+
+.centered{
+	text-align: center;
+	transform: translateX(-20%);
+}
+
+h1 {
+  font-family: "Ginto Nord Bold";
+  font-size: 3.25em;
+  line-height: .75em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Bold.woff");
+}
+
+a {
+text-decoration: none;
+}
+
+.h1-blur {
+   color: transparent;
+   text-shadow: 0 0 2px rgba(0,0,0,1);
+   text-indent: 1.5em;
+   margin-left: 5%;
+	 transition: all ease 0.25s;
+	 -webkit-transition: all ease 0.25s;
+
+}
+
+.h1-blur:hover{
+	transform:translateY(5px);
+	-ms-transform:translateY(5px); /* prefix for IE 9 */
+	-webkit-transform:translateY(5px); /* prefix for Safari and Chrome */
+}
+
+h2 {
+  font-family: "Ginto Nord Black";
+  font-size: 1.5em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Black.woff");
+  padding-bottom: 10%;
+	padding-top: 10px;
+}
+
+h3 {
+	font-family: "Ginto Nord Medium";
+  font-size: 1.5em;
+	line-height: .85em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Medium.woff");
+}
+
+.h3-blur {
+	color: transparent;
+  text-shadow: 0 0 .5px rgba(0,0,0,1);
+
+  text-align: center;
+  margin-left: 5%;
+
+}
+
+h4 {
+	font-family: "Ginto Nord Regular";
+  font-size: .75em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Regular.woff");
+}
+
+h5 {
+	font-family: "Ginto Nord Bold";
+  font-size: .5em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Bold.woff");
+	margin-left: 25px;
+	display: block;
+}
+
+h6 {
+	font-family: "Ginto Normal Light";
+  font-size: .5em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNormalTrial-Light.woff");
+	margin-left: 25px;
+	margin-right: 45px;
+	display: block;
+}
+
+.footnotes {
+	font-family: "Ginto Nord Light";
+  font-size: .5em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Light.woff");
+	margin-left: 50px;
+	margin-right: 25px;
+	display: block;
+}
+
+.h5-blur {
+	color: transparent;
+  text-shadow: 0 0 0.1px rgba(0,0,0,1);
+
+  text-align: left;
+  margin-left: 5%;
+
+}
+
+p {
+  font-family: "Favorit";
+  font-size: 1.25em;
+  line-height: 1.25em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/favorit/Favorit-Light.otf");
+}
+</style>
+</head>
+<body>
+
+
+
+  <div class="split left">
+
+		<div class="split banner">
+
+
+					<img src="/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/img/new_dithering_left.png" alt="">
+
+
+		</div>
+
+		<div class="footer">
+							<img src="/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/img/new_dithering_bottom.png" alt="">
+		</div>
+
+		<div class="index">
+				<h5 class="h5-blur" 	style="transform: translate(35px,0px)">EUROPE AFTER RAIN I: 1933 / EUROPE AFTER RAIN II: 1942 / <br>EARTHRISE: 1968</h5>
+		</div>
+
+		<div class="index2">
+				<h3 class="h3-blur" 	style="transform: translateY(-7px);">WE'RE TERRESTIAL<br>COMPOST, AREN'T WE?</h3>
+		</div>
+
+		<div class="index3">
+				<img src="/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/img/dithering_relict_web.png" alt="">
+		</div>
+
+  <div class="menu">
+		<a href="file:///Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/three.js-master/examples/healing.html">
+			<div class="chapter">
+				<h1 class="h1-blur">HEALING OF <br>A DEFORMEND MATERIAL</h1>
+			</div>
+		</a>
+
+		<div class="chapter">
+      <h1 class="h1-blur">THE <br>THEORY OF KNOWLEDGE</h1>
+    </div>
+
+		<div class="chapter">
+      <h1 class="h1-blur">DRIFT CARE-<br>FULLY AND COME BACK SOON</h1>
+    </div>
+
+		<div class="chapter">
+      <h1 class="h1-blur">THE ETERNAL PURSUIT OF TOGETHERNESS</h1>
+    </div>
+
+		<div class="chapter">
+      <h1 class="h1-blur">HEALING OF A DEFORMEND MATERIAL</h1>
+    </div>
+	</div>
+</div>
+
+  <div class="split2 right">
+    <div class="content">
+			<div id="abstract">
+				<img src="textures/DCACBS_landscape.jpg" style="width:75%;padding-left:10%;"alt="">
+      <h6 class="blur">The Plutonics Committee strongly urges the field of graphic design, to mingle and ally with other fields of knowledge. A global trauma is going on, channeling political extremes dividing humankind in two camps. Tapping on the cognitive abilities, the narratives of our world should help us in times of trouble. Help us growing greater than we are.
+The materials to work with, are those that mingle the past and the possible future into our present. [1].  You will find them in the alchemist’s archive, a common ground encouraging us to wonder, question and create. Change is the only constant.
+</h6>
+
+			</div>
+
+			<div class="footnotes">
+
+			</div>
+
+
+
+		</div>
+
+	</div>
+
+
+
+
+
+</body>
+</html>

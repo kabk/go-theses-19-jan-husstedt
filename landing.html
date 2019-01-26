@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+#style-4::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+
+
+::-webkit-scrollbar { width: 5px;}
+::-webkit-scrollbar-button {  background-color: #000; }
+::-webkit-scrollbar-track {  background-color: transparent;}
+::-webkit-scrollbar-track-piece { background-color: transparent; border-left: 1px;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #000; border-radius: 3px;}
+
+@font-face {
+					 font-family: "Ginto Nord Black";
+					 src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Black.woff");
+				 }
+				 @font-face {
+				      			font-family: "Ginto Nord Bold";
+				      			src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Bold.woff");
+				    			}
+									@font-face {
+												 font-family: "Ginto Nord Medium";
+												 src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Medium.woff");
+											 }
+
+																@font-face {
+																					font-family: "Ginto Nord Regular";
+																					src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Regular.woff");
+																				}
+
+																				@font-face {
+																									font-family: "Ginto Nord Light";
+																									src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Light.woff");
+																								}
+
+
+
+
+
+
+
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+	width: 100%;
+  position: absolute;
+	text-align: left;
+  z-index: 0;
+  overflow-x: hidden;
+
+}
+
+.split2 {
+	height: 100%;
+	width:20%;
+	position: fixed;
+	z-index: 20000;
+	overflow-x: hidden;
+}
+
+
+.right2 {
+	right: 0;
+	top: 0;
+	background-color: white;
+  border-left: 0px solid black;
+}
+
+
+/* Control the left side */
+.left {
+	left:0;
+	top: 0;
+  /*border-left: 1px solid black;*/
+}
+
+/* Control the right side */
+.right {
+  left:40%;
+	top: 0;
+	background-color: white;
+  border-left: 1px solid black;
+}
+
+.gradient{
+	float: left;
+	top:1000px;
+	height:20px;
+	width:100%;
+	border: 0px solid red;
+	-webkit-box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+	box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+
+}
+.dcacbs {
+  float: left;
+	top:1000px;
+	text-align: center;
+	height:1800px;
+	margin-left: 25%;
+	margin-right: 25%;
+	border: 1px solid red;
+}
+
+.banner {
+	left:0;
+	background-color: white;
+	width:50px;
+	border-right: 1px solid black;
+	z-index:2;
+	position: fixed;
+}
+
+.banner_right {
+	right:0;
+	background-color: white;
+	width:50px;
+	border-right: 1px solid black;
+	z-index:2000;
+	overflow:hidden;
+}
+
+
+.footer {
+	position: fixed;
+	left:0;
+	bottom: 0;
+	width: 200%;
+	height: 75px;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	z-index:2;
+}
+
+#container{
+	width: 100%;
+
+}
+.moved_left{
+	transform:translateY(55px);
+	-ms-transform:translateY(55px); /* prefix for IE 9 */
+	-webkit-transform:translateY(55px); /* prefix for Safari and Chrome */
+	  }
+
+		.index {
+			position: fixed;
+			left:0;
+			bottom: 76px;
+			width: 35%;
+			height: 55px;
+			background-color: white;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
+			z-index:1;
+			text-align:center;
+
+		}
+
+		.index2 {
+			position: fixed;
+			left:0;
+			bottom: 132px;
+			width: 35%;
+			height: 75px;
+			background-color: white;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
+			z-index:1;
+			text-align:center;
+
+		}
+
+		.index3 {
+			position: fixed;
+			left:35%;
+			bottom: 76px;
+			width: 15%;
+			height: 131px;
+			background-color: white;
+			border-top: 1px solid black;
+			border-left: 1px solid black;
+			z-index:1;
+			text-align:center;
+
+		}
+
+
+/* If you want the content centered horizontally and vertically */
+.menu {
+  position: absolute;
+  text-align: left;
+	margin-left: 0%;
+}
+
+/* Style the image inside the centered container, if needed */
+
+
+.content {
+  position: absolute;
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: left;
+
+}
+
+.right2 img {
+  width: 250px;
+	margin-left: 25px;
+	margin-top: 25px;
+  border-radius: 0%;
+	-webkit-box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+	box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.right2 img:hover {
+  width: 250px;
+	margin-left: 30px;
+	margin-top: 20px;
+  border-radius: 0%;
+	-webkit-box-shadow: 0px 0px 7.5px 7.5px rgba(0,0,0,1);
+-moz-box-shadow: 0px 0px 7.5px 7.5px rgba(0,0,0,1);
+box-shadow: 0px 0px 7.5px 7.5px rgba(0,0,0,1);
+
+}
+
+.blur {
+   color: transparent;
+   text-shadow: 0 0 1px rgba(0,0,0,1);
+}
+
+.text-indent {
+  text-indent: 5em;
+}
+
+.image {
+
+	}
+
+
+
+.chapter{
+    border-bottom: 1px solid black;
+
+
+}
+
+.chapter:hover{
+
+}
+
+
+.centered{
+	text-align: center;
+	transform: translateX(-20%);
+}
+
+
+h1 {
+  font-family: "Ginto Nord Bold";
+  font-size: 3.25em;
+  line-height: .75em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Bold.woff");
+}
+
+.h1-blur {
+   color: transparent;
+   text-shadow: 0 0 2px rgba(0,0,0,1);
+   text-indent: 1.5em;
+   margin-left: 5%;
+	 transition: all ease 0.25s;
+	 -webkit-transition: all ease 0.25s;
+
+}
+
+.h1-blur:hover{
+	transform:translateY(5px);
+	-ms-transform:translateY(5px); /* prefix for IE 9 */
+	-webkit-transform:translateY(5px); /* prefix for Safari and Chrome */
+}
+
+h2 {
+  font-family: "Ginto Nord Black";
+  font-size: 1.5em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Black.woff");
+  padding-bottom: 10%;
+	padding-top: 10px;
+}
+
+h3 {
+	font-family: "Ginto Nord Medium";
+  font-size: 1.5em;
+	line-height: .85em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Medium.woff");
+}
+
+.h3-blur {
+	color: transparent;
+  text-shadow: 0 0 .5px rgba(0,0,0,1);
+
+  text-align: center;
+  margin-left: 5%;
+
+}
+
+h4 {
+	font-family: "Ginto Nord Bold";
+  font-size: 7.5em;
+	line-height: .85em;
+	text-shadow: 0 0 4px rgba(0,0,0,1);
+	color: black;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Bold.woff");
+}
+
+.h4-blur {
+	color: transparent;
+  text-shadow: 0 0 4px rgba(0,0,0,1);
+
+  text-align: center;
+  margin-left: 20%;
+
+}
+
+h5 {
+	font-family: "Ginto Nord Bold";
+  font-size: .5em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Bold.woff");
+	margin-left: 25px;
+	display: block;
+}
+
+h6 {
+	font-family: "Ginto Normal Light";
+  font-size: .5em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNormalTrial-Light.woff");
+	margin-right: 45px;
+	display: block;
+}
+
+.h6-blur {
+	color: transparent;
+  text-shadow: 0 0 0.1px rgba(0,0,0,1);
+	text-align: left;
+}
+
+.footnotes {
+	font-family: "Ginto Nord Light";
+  font-size: .5em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Light.woff");
+	margin-left: 50px;
+	margin-right: 25px;
+	display: block;
+}
+
+.h5-blur {
+	color: transparent;
+  text-shadow: 0 0 0.1px rgba(0,0,0,1);
+
+  text-align: left;
+  margin-left: 5%;
+
+}
+
+p {
+  font-family: "Favorit";
+  font-size: 1.2	5em;
+  line-height: 1.25em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/favorit/Favorit-Light.otf");
+}
+</style>
+
+<script src="../build/three.js"></script>
+<script src="js/controls/OrbitControls.js"></script>
+<script src="js/objects/Reflector.js"></script>
+<script src="js/objects/Refractor.js"></script>
+<script src="js/objects/Water2.js"></script>
+<script src="js/WebGL.js"></script>
+<script src="js/libs/dat.gui.min.js"></script>
+
+</head>
+<body>
+
+<div class="main">
+
+<div class="split">
+
+
+
+		<div id="container">
+
+		<script>
+
+		if ( WEBGL.isWebGLAvailable() === false ) {
+
+			document.body.appendChild( WEBGL.getWebGLErrorMessage() );
+
+		}
+
+		var scene, camera, clock, renderer, water;
+
+		var torusKnot;
+
+		var params = {
+			color: '#ffffff',
+			scale: 100,
+			flowX: .25,
+			flowY: .25,
+		};
+
+		init();
+		animate();
+
+		function init() {
+
+			// scene
+
+			scene = new THREE.Scene();
+
+			// camera
+
+			camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 0.5, 500 );
+			camera.position.set( 0, 90, 15 );
+			camera.lookAt( scene.position );
+
+			// clock
+
+			clock = new THREE.Clock();
+
+			// mesh
+
+			var torusKnotGeometry = new THREE.TorusKnotBufferGeometry( 3, 1, 256, 32 );
+			var torusKnotMaterial = new THREE.MeshNormalMaterial();
+
+			torusKnot = new THREE.Mesh( torusKnotGeometry, torusKnotMaterial );
+			torusKnot.position.y = 4;
+			torusKnot.scale.set( 0.0, 0.0, 0.0 );
+			scene.add( torusKnot );
+
+			// ground
+
+			var groundGeometry = new THREE.PlaneBufferGeometry( 75, 45 );
+			var groundMaterial = new THREE.MeshStandardMaterial( { roughness: 0.8, metalness: 0.4 } );
+			var ground = new THREE.Mesh( groundGeometry, groundMaterial );
+			ground.rotation.x = Math.PI * - 0.5;
+			scene.add( ground );
+
+			var textureLoader = new THREE.TextureLoader();
+			textureLoader.load( 'textures/mutate_white_txt.png', function ( map ) {
+
+				map.wrapS = THREE.RepeatWrapping;
+				map.wrapT = THREE.RepeatWrapping;
+				map.anisotropy = 32;
+				map.repeat.set( 1, 1 );
+				groundMaterial.map = map;
+				groundMaterial.needsUpdate = true;
+
+			} );
+
+			// water
+
+			var waterGeometry = new THREE.PlaneBufferGeometry( 90, 110);
+
+			water = new THREE.Water( waterGeometry, {
+				color: params.color,
+				scale: 1,
+				flowDirection: new THREE.Vector2( params.flowX, params.flowY ),
+				textureWidth: 512,
+				textureHeight: 1024
+			} );
+
+			water.position.y = 1;
+			water.rotation.x = Math.PI * - 0.5;
+			scene.add( water );
+
+			// skybox
+
+
+			// light
+
+			var ambientLight = new THREE.AmbientLight( 0xcccccc, 2.5 );
+			scene.add( ambientLight );
+
+			var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+			directionalLight.position.set( - 1, 1, 1 );
+			scene.add( directionalLight );
+
+			// renderer
+
+			renderer = new THREE.WebGLRenderer( { antialias: true } );
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			renderer.setPixelRatio( window.devicePixelRatio );
+			document.body.appendChild( renderer.domElement );
+
+			// dat.gui
+
+
+			//
+
+			var controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+			//
+
+			window.addEventListener( 'resize', onResize, false );
+
+		}
+
+		function onResize() {
+
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+
+		}
+
+		function animate() {
+
+			requestAnimationFrame( animate );
+
+			render();
+
+		}
+
+		function render() {
+
+			var delta = clock.getDelta();
+
+			torusKnot.rotation.x += delta;
+			torusKnot.rotation.y += delta * 0.5;
+
+			renderer.render( scene, camera );
+
+		}
+
+	</script>
+
+
+	<div class="split banner">
+
+
+				<img src="/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/img/new_dithering_left.png" alt="">
+
+
+	</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+<div class="gradient">
+</div>
+<div class="dcacbs">
+	<h6 class="h6-blur">The Plutonics Committee strongly urges the field of graphic design, to mingle and ally with other fields of knowledge. A global trauma is going on, channeling political extremes dividing humankind in two camps. Tapping on the cognitive abilities, the narratives of our world should help us in times of trouble. Help us growing greater than we are.
+	The materials to work with, are those that mingle the past and the possible future into our present. [1].  You will find them in the alchemist’s archive, a common ground encouraging us to wonder, question and create. Change is the only constant.
+	</h6>
+</div>
+</body>
+</html>

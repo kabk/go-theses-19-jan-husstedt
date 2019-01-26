@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+#style-4::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+
+
+::-webkit-scrollbar { width: 5px;}
+::-webkit-scrollbar-button {  background-color: #000; }
+::-webkit-scrollbar-track {  background-color: transparent;}
+::-webkit-scrollbar-track-piece { background-color: transparent; border-left: 1px;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #000; border-radius: 3px;}
+
+@font-face {
+					 font-family: "Ginto Nord Black";
+					 src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/ginto/GintoNordTrial-Black.woff");
+				 }
+				 @font-face {
+				      			font-family: "Ginto Nord Bold";
+				      			src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/ginto/GintoNordTrial-Bold.woff");
+				    			}
+									@font-face {
+												 font-family: "Ginto Nord Medium";
+												 src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/ginto/GintoNordTrial-Medium.woff");
+											 }
+
+																@font-face {
+																					font-family: "Ginto Nord Regular";
+																					src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/ginto/GintoNordTrial-Regular.woff");
+																				}
+
+																				@font-face {
+																									font-family: "Ginto Nord Light";
+																									src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/ginto/GintoNordTrial-Light.woff");
+																								}
+																								@font-face {
+																													font-family: "Favorit Light";
+																													src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/favorit/Favorit_Light.ttf");
+																												}
+																												@font-face {
+																																	font-family: "Favorit Mono Light";
+																																	src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/favorit/FavoritMono-Light.otf");
+																																}
+																																@font-face {
+																																					font-family: "Favorit Lining Light";
+																																					src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/favorit/FavoritLining-Light.otf");
+																																				}
+
+
+
+
+
+
+
+
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+	width: 30%;
+  position: fixed;
+  z-index: 0;
+  overflow-x: hidden;
+
+}
+
+.split1{
+	height: 100%;
+	width: 70%;
+	position: fixed;
+  z-index: 0;
+  overflow-x: hidden;
+}
+
+.split2 {
+	height: 100%;
+	width:20%;
+	position: fixed;
+	z-index: 20000;
+	overflow-x: hidden;
+}
+
+
+.right2 {
+	right: 0;
+	top: 0;
+	background-color: white;
+  border-left: 0px solid black;
+}
+
+
+/* Control the left side */
+.left {
+	left:5;
+	top: 0;
+	background-color: white;
+  /*border-left: 1px solid black;*/
+}
+
+/* Control the right side */
+.right {
+  left:30%;
+	top: 0;
+	background-color: white;
+  border-left: 1px solid black;
+}
+
+
+.banner {
+	left:0;
+	background-color: white;
+	width:50px;
+	border-right: 1px solid black;
+	z-index:2;
+	overflow:hidden;
+}
+
+
+.footer {
+	position: fixed;
+	left:0;
+	bottom: 0;
+	width: 200%;
+	height: 75px;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	z-index:2;
+}
+
+.moved_left{
+	transform:translateY(55px);
+	-ms-transform:translateY(55px); /* prefix for IE 9 */
+	-webkit-transform:translateY(55px); /* prefix for Safari and Chrome */
+	  }
+
+		.index {
+			position: fixed;
+			left:0;
+			bottom: 76px;
+			width: 20%;
+			height: 55px;
+			background-color: white;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
+			z-index:1;
+			text-align:center;
+
+		}
+
+		.index2 {
+			position: fixed;
+			left:0;
+			bottom: 132px;
+			width: 20%;
+			height: 75px;
+			background-color: white;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
+			z-index:1;
+			text-align:center;
+
+		}
+
+		.index3 {
+			position: fixed;
+			left:20%;
+			bottom: 76px;
+			width: 10%;
+			height: 131px;
+			background-color: white;
+			border-top: 1px solid black;
+			border-left: 1px solid black;
+			z-index:1;
+			text-align:center;
+
+		}
+
+
+/* If you want the content centered horizontally and vertically */
+.menu {
+  position: absolute;
+  text-align: left;
+	margin-left: 5%;
+}
+
+/* Style the image inside the centered container, if needed */
+
+.content {
+  position: absolute;
+  padding-left: 5%;
+  padding-right: 35%;
+  text-align: left;
+
+}
+
+.right2 img {
+  width: 250px;
+	margin-left: 25px;
+	margin-top: 25px;
+  border-radius: 0%;
+	-webkit-box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+	box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+}
+
+.right2 img:hover {
+  width: 250px;
+	margin-left: 30px;
+	margin-top: 20px;
+  border-radius: 0%;
+	-webkit-box-shadow: 0px 0px 7.5px 7.5px rgba(0,0,0,1);
+-moz-box-shadow: 0px 0px 7.5px 7.5px rgba(0,0,0,1);
+box-shadow: 0px 0px 7.5px 7.5px rgba(0,0,0,1);
+
+}
+
+.blur {
+   color: transparent;
+   text-shadow: 0 0 1px rgba(0,0,0,1);
+}
+
+.text-indent {
+  text-indent: 5em;
+}
+
+.image {
+
+	}
+
+
+
+.chapter{
+    border-bottom: 1px solid black;
+		padding-left: 7%;
+
+
+}
+
+
+
+.centered{
+	text-align: center;
+	transform: translateX(-20%);
+}
+
+h1 {
+  font-family: "Ginto Nord Bold";
+  font-size: 3.25em;
+  line-height: .75em;
+  src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/ginto/GintoNordTrial-Bold.woff");
+}
+
+.h1-blur {
+   color: transparent;
+   text-shadow: 0 0 2px rgba(0,0,0,1);
+   text-indent: 1.5em;
+   margin-left: 5%;
+	 transition: all ease 0.25s;
+	 -webkit-transition: all ease 0.25s;
+
+}
+
+.h1-blur:hover{
+	transform:translateY(5px);
+	-ms-transform:translateY(5px); /* prefix for IE 9 */
+	-webkit-transform:translateY(5px); /* prefix for Safari and Chrome */
+}
+
+h2 {
+  font-family: "Ginto Nord Black";
+  font-size: 2.25em;
+	line-height: .875em;
+  src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/ginto/GintoNordTrial-Black.woff");
+  padding-bottom: 1%;
+	padding-top: 1%;
+}
+
+.h2-blur {
+   color: transparent;
+   text-shadow: 0 0 1px rgba(0,0,0,1);
+   text-indent: 1.5em;
+	 transition: all ease 0.25s;
+	 -webkit-transition: all ease 0.25s;
+
+}
+
+.h2-blur:hover{
+	transform:translateY(5px);
+	-ms-transform:translateY(5px); /* prefix for IE 9 */
+	-webkit-transform:translateY(5px); /* prefix for Safari and Chrome */
+}
+
+h3 {
+	font-family: "Ginto Nord Medium";
+  font-size: 1.5em;
+	line-height: .85em;
+  src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/ginto/GintoNordTrial-Medium.woff");
+}
+
+.h3-blur {
+	color: transparent;
+  text-shadow: 0 0 .5px rgba(0,0,0,1);
+
+  text-align: center;
+  margin-left: 5%;
+
+}
+
+h4 {
+	font-family: "Ginto Nord Regular";
+  font-size: .75em;
+	line-height: 1em;
+  src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/ginto/GintoNordTrial-Regular.woff");
+}
+
+h5 {
+	font-family: "Ginto Nord Bold";
+  font-size: .5em;
+	line-height: 1em;
+  src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/ginto/GintoNordTrial-Bold.woff");
+	margin-left: 25px;
+	display: block;
+}
+
+h6 {
+	font-family: "Ginto Normal Light";
+  font-size: .5em;
+	line-height: 1em;
+  src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/ginto/GintoNormalTrial-Light.woff");
+	margin-left: 25px;
+	margin-right: 45px;
+	display: block;
+}
+
+.footnotes {
+	font-family: "Favorit Mono Light";
+  font-size: .5em;
+	line-height: 1em;
+  src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/favorit/FavoritMono-Light.otf");
+	margin-left: 50px;
+	margin-right: 25px;
+	display: block;
+}
+
+.h5-blur {
+	color: transparent;
+  text-shadow: 0 0 0.1px rgba(0,0,0,1);
+
+  text-align: left;
+  margin-left: 5%;
+
+}
+
+p {
+  font-family: "Favorit Light";
+  font-size: 1.5em;
+  line-height: 1.25em;
+  src: url("http://localhost:8888/three.js-master/driftcarefully/assets/type/favorit/Favorit-Light.otf");
+}
+</style>
+</head>
+<body>
+
+
+
+  <div class="split left">
+
+		<div class="split banner">
+
+
+					<img src="http://localhost:8888/three.js-master/driftcarefully/assets/img/new_dithering_left.png" alt="">
+
+
+		</div>
+
+		<div class="footer">
+							<img src="http://localhost:8888/three.js-master/driftcarefully/assets/img/new_dithering_bottom.png" alt="">
+		</div>
+
+		<div class="index">
+				<h5 class="h5-blur" 	style="transform: translate(35px,0px)">EUROPE AFTER RAIN I: 1933 / EUROPE AFTER RAIN II: 1942 / <br>EARTHRISE: 1968</h5>
+		</div>
+
+		<div class="index2">
+				<h3 class="h3-blur" 	style="transform: translateY(-7px);">WE'RE TERRESTIAL<br>COMPOST, AREN'T WE?</h3>
+		</div>
+
+		<div class="index3">
+				<img src="http://localhost:8888/three.js-master/driftcarefully/assets/img/dithering_relict_web.png" alt="">
+		</div>
+
+  <div class="menu">
+		<div class="chapter">
+      <h2 class="h2-blur">CELEBRATING COGNITIVE DEATH</h2>
+    </div>
+
+		<div class="chapter">
+      <h2 class="h2-blur">HEALING OF <br>A DEFORMEND MATERIAL</h2>
+    </div>
+
+		<div class="chapter">
+      <h2 class="h2-blur">THE <br>THEORY OF KNOWLEDGE</h2>
+    </div>
+
+		<div class="chapter">
+      <h2 class="h2-blur">DRIFT CARE-<br>FULLY AND COME BACK SOON</h2>
+    </div>
+
+		<div class="chapter">
+      <h2 class="h2-blur">THE ETERNAL PURSUIT OF TOGETHERNESS</h2>
+    </div>
+
+		<div class="chapter">
+      <h2 class="h2-blur">HEALING OF A DEFORMEND MATERIAL</h2>
+    </div>
+	</div>
+</div>
+
+  <div class="split1 right">
+    <div class="content">
+			<div id="abstract">
+      <h4 class="blur">ABSTRACT</h4>
+      <p class="text-indent">	Europe, one of the sophisticated social environments [1] humankind has developed during the Anthropocene, is facing a political backlash.[2] Noting down a not-so-latent, almost peaking tendency towards right-wing and conservative politics, [3]  the book of relevant observations becomes heavier and heavier. The mode of operation becomes more sophisticated, we’re lost in connotations, the air to breathe is way thicker and our sight only takes us around the next corner, as if a sour rain is dripping on the foreheads. There is a war going down on the narratives of humanity and there is a lot – and a lot more – of brave activists and citizens bracing themselves against skepticism, hate and grief.
+	What this planet feels like at the moment, comes very close to an artwork of surrealist and dadaist Max Ernst. Indeed political developments seem surreal and regarding politics society appears disconnected from within. Max Ernst, by some people, was seen as a nutcase; an undisciplined thinker; but many more did not oversee his exceptional gifts and his power to startle and provoke. [4] In 1933, after national-socialists took over power in post-war Germany, an objet-trouvé occurred made by him. What is the story behind this piece? It starts with the surrealist movie L’Âge d’Or Max Ernst was part of. [5] Max Ernst’s role was to play the leader of the men — in fact, some bunch of ragged bandits. The screenplay of L’Âge d’Or was written by Salvador Dali and Luis Bunuel. The movie was such a controversy that it eventually provoked fascist groups to go on a serious rampage against it. During a screening at a famous cinema in Paris, some hooligans wrecked the theatre and it’s interiors, ultimately leading to the suppression of the movie by the police chief. This interesting anecdote has nothing to do with the artwork itself in the first place, but certainly positions the movie in the political spectrum. L’Âge d’Or was about individual desire and the rejection of power. The production budget of a million francs came from a nobleman who yearly commissioned a film as a birthday gift to his wife. L’Âge d’Or is a black comedy piece soaked in religion, pushing against power-constructs that work to oppress individual desire. Those who benefit from the oppression are spotless mannequins, insensitive to the imagination and the inner life. Using sex and desire as an “agent of chaos” [6] and driving force for the screenplay, the movie’s essential message is to disrespect any barrier and disobey any law. It is told that Max Ernst, during the shot—maybe shooting at or throwing around some enemies—realized some irregularly plastered and painted boards, that were used as walls on set. After playing the leader of ragged bandits in the movie, being outside his role, he recognized the same boards in the garbage after the scenes were finished. He took the plywood that was left behind and painted three pictures on them. One of them is Europe After Rain I.
+	Alchemists had a secret language that allowed them to pass on their research over centuries. What the profound alchemist did is turning base metals into gold. Furthermore, they put meaning into the basic elements and the mutations they created in order to create knowledge. Essentially, he or she creates a change in value. Max Ernst himself refers to his body of work as visual alchemy too. What a visual alchemist like Max Ernst does then, is mixing several techniques and materials—in case of Europe After Rain it was oil, gypsum, collaging— in order to mutate a simple, pragmatic object into another. By doing so, he shifted the object’s belongingness through purposefully adding layers, color, borders, and relief, leading to a meaningful surplus. This process led to plywood changing into a speculative map of Europe, foreseeing consequences of nationalism and populism with landscapes and borders out of place. The work’s autonomy might rose with the chaos, which has been central to it. Europe After Rain I might have been a consequence of the eros of L’Âge d’Or. Both works alike do not respect any barrier or obey any law.
+        In Europe After Rain II the artist Max Ernst already processes the peaking violence and incredible forces that went down on Europe from a much closer perspective. Painting Europe as a traumatized and ruined landscape, the observer already notices the on-going mechanics and consequence of war: the painting is full of deformation. Notice the rusty and used color palette, see the few naked, disappearing bodies as vanishing desire and the bird-human (Max Ernst’s Alter Ego) as a broken citizen of a free world that has been taken away. Whether it be the surreal landscape resembling the street view of a bombed and destroyed avenue somewhere, or whether it be the bone-like structures representing lifeless human and animal bodies, Europe After Rain II it is full of death and dark, twisted transformation, certain negativity absorbing any desire. The painting, in fact, is the most horrible painting one can look at and should be memorized very well.
+        Eventually, the war was over, resources we’re down and the trauma was huge. The hearts and minds, the bodies that carried them and the structures the kept them flowing, were ready for healing. Being ripped apart and traumatized for too long, having relentlessly given hope and resources to a rapid end of WWII, the post-war period is marked by a hunger for far more rational choices, some universal rules to be applicable for anyone. Humankind was desiring a new age of togetherness. What could have been the repair for that global crack which appeared? The hippie movement: a peaceful counterculture obsessed with a rational universalism. An obsession perfectly intertwined with Earthrise in 1968 and Blue Marble in 1972, the first iconic images of Earth from space sparked awareness of our very planetary boundaries, giving evidence and justification for a rational universalism driven by science and knowledge. An obsession for self-optimization and self-improvement was born, which is an incredible shift after experiencing years of global war and trauma, simply exploitation by all means. Especially Blue Marble completely flipped the correlation between human and planet. Not only, but it was also bullet-proof that the earth is not a disk. Moreover, people all over the world started questioning the relationship humans had with each other and further which relationship humankind had with its planet. Eventually, the field of ecology became a serious topic. It is the first longer period in the 20th century where men and women all over the world thought about the planet’s resources, how humankind and civilization are essentially exploiting it for its well-being and well-functioning. Both Blue Marble and Earthrise do mark a period of eco-driven content published by Stewart Brand, which we aspire, reject or simply know as Whole Earth Catalogue, still being famous and well received in 2018. If there hasn’t been any common lecture for the universal movement before, the Whole Earth Catalogue did provide it, eventually fuelling the discourse on climate and eco-responsibilities, feminism, self-care by creating and inspiring a solid do-it-yourself culture. It is said that this book changed the way humankind understood its habitat. An internet before the internet, giving people answers on how to do it themselves. [7] It is the hippie culture, resisting the ‘ragged bandits’ in power still leading countries into conflict, resisting a military complex becoming established after WWII, resisting the petite bourgeoisie. Their autonomous thinking lead towards an era of political radicalism, pointing at the togetherness of things and people, raising questions we can now find answered in our society. [8]
+        Regarding the current developments in polity, these achievements must have been declared as invalid. It must seem like all the knowledge coming from several scientific perspectives has never existed. So it might be the best of times for knowledge, but also the worst of times. [9] Political extremes and their storytellers have taken over on our abilities and removed what has been taken for granted. On a cognitive level, these stories might focus only on truth or belief. It is not enough to simply know something or believe in something. The theory of knowledge tells us that only the deduction of both can result in knowledge. Knowledge-based on one or the other turns into a flourishing ground for either skepticism or flatness. We have to acknowledge science as a deduction of both—truth and belief—so we can profoundly call something knowledge. A primer providing us with ideas of unity, togetherness, indifference and helping us growing greater than we are.
+        What is it now that gives us back the power to improve ourselves in times of trouble? How can we make use of the multiplicity of knowledge? Regarding populism, nationalism, racism, gender phobia and sexism, will human potential unfold into a movement growing greater than we are? Knowing the fact that all the knowledge of the world lies in our hands, how can we zoom back in? What could that wizardry be? Something profoundly transformative from what the west invented as the oriental middle-east? [10] Or from another place within our own borders, but no one ever dares to go? Are these men and women even trustworthy enough? Are they good or bad? Do they believe in the same thing? What is their sexual preference? How do they reproduce? Are the stories they are telling true? Will they overcome us? Even if, are they disciplined enough to do so? As long as humans reject the most universal ideas in their closest environments and instead stay suspicious of anything odd, strange or unrelated, no one will have an answer to that. It is not a coincidence that you’ll find globes in libraries. Knowledge is universal. Without encountering the other and the unknown, society will fall into insignificant pieces soon enough. Can we imagine a new world, a Pangea celebrating humankind and togetherness? Or, must humankind celebrate its cognitive death?
+			</p>
+		</div>
+
+			<div class="footnotes">
+				<p>1	Harari, Yuval Noah (2015): Why humans run the world. Retrieved from https://www.
+	youtube.com/watch?v=nzj7Wg4DAbs&t=31s
+2	Roger Cohen, NY Times (https://www.nytimes.com/2016/04/05/opinion/the-poli
+	tics-of-backlash.html)
+3	Bennhold, Kathrin (2018): Chemnitz Protest Show New Strength of Germany’s Far
+	Right. Retrieved from New York Times https://www.nytimes.com/2018/08/30/world/eu
+	rope/germany-neo-nazi-protests-chemnitz.html
+4	Russell, John (1976): Max Ernst, Catalytic Figure in 20th Century Art, Dies. Re
+	trieved from New York Times Archive https://archive.nytimes.com/www.nytimes.com/
+	learning/general/onthisday/bday/0402.html
+5	L`Âge d’Òr translates to Golden Age — a period signifiying peace, harmony,
+	stability, prosperity</p>
+			</div>
+
+
+
+		</div>
+
+	</div>
+	<div class="split2 right2">
+		<h3 class="blur" style="margin-left:25px;">ARCHIVE</h3>
+
+	<div class="image">
+
+
+	<img src="https://imgix.bustle.com/uploads/getty/2018/7/31/8e72bc95-2324-4291-b3e3-80ffbc8ffcf7-getty-107716981.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70" alt="">
+	<h5 class="blur">	Fig.1 &mdash; Planetary Trouble</h5>
+
+	</div>
+	<div class="image">
+
+
+		<img src="https://imgix.bustle.com/uploads/getty/2018/7/31/8e72bc95-2324-4291-b3e3-80ffbc8ffcf7-getty-107716981.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70" alt="">
+		<h5 class="blur">	Planetary Trouble</h5>
+
+	</div>
+	<div class="image">
+
+
+		<img src="https://imgix.bustle.com/uploads/getty/2018/7/31/8e72bc95-2324-4291-b3e3-80ffbc8ffcf7-getty-107716981.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70" alt="">
+		<h5 class="blur">	Planetary Trouble — Jussi Parikka</h5>
+		<h6 class="blur">	If you've been feeling like nothing has been going right no matter what you do, or if you've noticed that everything you say is coming out wrong to people, you aren't alone — and there's a pretty good reason behind what's going on.</h6>
+
+	</div>
+	<div class="image">
+
+
+		<img src="https://imgix.bustle.com/uploads/getty/2018/7/31/8e72bc95-2324-4291-b3e3-80ffbc8ffcf7-getty-107716981.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70" alt="">
+		<h5 class="blur">	Planetary Trouble</h5>
+
+	</div>
+	</div>
+
+
+
+
+
+</body>
+</html>

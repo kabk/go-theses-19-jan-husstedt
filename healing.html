@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+#style-4::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+
+
+::-webkit-scrollbar { width: 5px;}
+::-webkit-scrollbar-button {  background-color: #000; }
+::-webkit-scrollbar-track {  background-color: transparent;}
+::-webkit-scrollbar-track-piece { background-color: transparent; border-left: 1px;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #000; border-radius: 3px;}
+
+@font-face {
+					 font-family: "Ginto Nord Black";
+					 src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Black.woff");
+				 }
+				 @font-face {
+				      			font-family: "Ginto Nord Bold";
+				      			src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Bold.woff");
+				    			}
+									@font-face {
+												 font-family: "Ginto Nord Medium";
+												 src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Medium.woff");
+											 }
+
+																@font-face {
+																					font-family: "Ginto Nord Regular";
+																					src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Regular.woff");
+																				}
+
+																				@font-face {
+																									font-family: "Ginto Nord Light";
+																									src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Light.woff");
+																								}
+
+
+
+
+
+
+
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+	width: 40%;
+  position: fixed;
+  z-index: 0;
+  overflow-x: hidden;
+
+}
+
+.split2 {
+	height: 100%;
+	width:60%;
+	position: fixed;
+	z-index: 20000;
+	overflow-x: hidden;
+}
+
+
+.right2 {
+	right: 0;
+	top: 0;
+	background-color: white;
+  border-left: 0px solid black;
+}
+
+
+/* Control the left side */
+.left {
+	left:5;
+	top: 0;
+	background-color: white;
+  /*border-left: 1px solid black;*/
+}
+
+/* Control the right side */
+.right {
+  left:40%;
+	top: 0;
+	background-color: white;
+  border-left: 1px solid black;
+}
+
+
+.banner {
+	left:0;
+	background-color: white;
+	width:50px;
+	border-right: 1px solid black;
+	z-index:2;
+	overflow:hidden;
+}
+
+
+.footer {
+	position: fixed;
+	left:0;
+	bottom: 0;
+	width: 200%;
+	height: 75px;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	z-index:2;
+}
+
+.moved_left{
+	transform:translateY(55px);
+	-ms-transform:translateY(55px); /* prefix for IE 9 */
+	-webkit-transform:translateY(55px); /* prefix for Safari and Chrome */
+	  }
+
+		.index {
+			position: fixed;
+			left:0;
+			bottom: 76px;
+			width: 35%;
+			height: 55px;
+			background-color: white;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
+			z-index:1;
+			text-align:center;
+
+		}
+
+		.index2 {
+			position: fixed;
+			left:0;
+			bottom: 132px;
+			width: 35%;
+			height: 75px;
+			background-color: white;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
+			z-index:1;
+			text-align:center;
+
+		}
+
+		.index3 {
+			position: fixed;
+			left:35%;
+			bottom: 76px;
+			width: 15%;
+			height: 131px;
+			background-color: white;
+			border-top: 1px solid black;
+			border-left: 1px solid black;
+			z-index:1;
+			text-align:center;
+
+		}
+
+
+/* If you want the content centered horizontally and vertically */
+.menu {
+  position: absolute;
+  text-align: left;
+	margin-left: 5%;
+}
+
+/* Style the image inside the centered container, if needed */
+.menu img {
+  width: 250px;
+  border-radius: 5%;
+}
+
+.content {
+  position: absolute;
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: left;
+
+}
+
+.right2 img {
+  width: 250px;
+	margin-left: 25px;
+	margin-top: 25px;
+  border-radius: 0%;
+	-webkit-box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+	box-shadow: 0px 0px 2px 2px rgba(0,0,0,1);
+}
+
+.right2 img:hover {
+  width: 250px;
+	margin-left: 30px;
+	margin-top: 20px;
+  border-radius: 0%;
+	-webkit-box-shadow: 0px 0px 7.5px 7.5px rgba(0,0,0,1);
+-moz-box-shadow: 0px 0px 7.5px 7.5px rgba(0,0,0,1);
+box-shadow: 0px 0px 7.5px 7.5px rgba(0,0,0,1);
+
+}
+
+.blur {
+   color: transparent;
+   text-shadow: 0 0 1px rgba(0,0,0,1);
+}
+
+.text-indent {
+  text-indent: 5em;
+}
+
+.image {
+
+	}
+
+
+
+.chapter{
+    border-bottom: 1px solid black;
+
+
+}
+
+.chapter:hover{
+
+}
+
+
+.centered{
+	text-align: center;
+	transform: translateX(-20%);
+}
+
+h1 {
+  font-family: "Ginto Nord Bold";
+  font-size: 3.25em;
+  line-height: .75em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Bold.woff");
+}
+
+a {
+text-decoration: none;
+}
+
+.h1-blur {
+   color: transparent;
+   text-shadow: 0 0 2px rgba(0,0,0,1);
+   text-indent: 1.5em;
+   margin-left: 5%;
+	 transition: all ease 0.25s;
+	 -webkit-transition: all ease 0.25s;
+
+}
+
+.h1-blur:hover{
+	transform:translateY(5px);
+	-ms-transform:translateY(5px); /* prefix for IE 9 */
+	-webkit-transform:translateY(5px); /* prefix for Safari and Chrome */
+}
+
+h2 {
+  font-family: "Ginto Nord Black";
+  font-size: 1.5em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Black.woff");
+  padding-bottom: 10%;
+	padding-top: 10px;
+}
+
+h3 {
+	font-family: "Ginto Nord Medium";
+  font-size: 1.5em;
+	line-height: .85em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Medium.woff");
+}
+
+.h3-blur {
+	color: transparent;
+  text-shadow: 0 0 .5px rgba(0,0,0,1);
+
+  text-align: center;
+  margin-left: 5%;
+
+}
+
+h4 {
+	font-family: "Ginto Nord Regular";
+  font-size: .75em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Regular.woff");
+}
+
+h5 {
+	font-family: "Ginto Nord Bold";
+  font-size: .5em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Bold.woff");
+	margin-left: 25px;
+	display: block;
+}
+
+h6 {
+	font-family: "Ginto Normal Light";
+  font-size: .5em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNormalTrial-Light.woff");
+	margin-left: 25px;
+	margin-right: 45px;
+	display: block;
+}
+
+.footnotes {
+	font-family: "Ginto Nord Light";
+  font-size: .5em;
+	line-height: 1em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/ginto/GintoNordTrial-Light.woff");
+	margin-left: 50px;
+	margin-right: 25px;
+	display: block;
+}
+
+.h5-blur {
+	color: transparent;
+  text-shadow: 0 0 0.1px rgba(0,0,0,1);
+
+  text-align: left;
+  margin-left: 5%;
+
+}
+
+p {
+  font-family: "Ginto Normal Light";
+  font-size: 1.25em;
+  line-height: 1.25em;
+  src: url("/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/type/favorit/GintoNormalTrial-Light.otf");
+}
+
+</style>
+</head>
+<body>
+
+
+
+  <div class="split left">
+
+		<div class="split banner">
+
+
+					<img src="/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/img/new_dithering_left.png" alt="">
+
+
+		</div>
+
+		<div class="footer">
+							<img src="/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/img/new_dithering_bottom.png" alt="">
+		</div>
+
+		<div class="index">
+				<h5 class="h5-blur" 	style="transform: translate(35px,0px)">EUROPE AFTER RAIN I: 1933 / EUROPE AFTER RAIN II: 1942 / <br>EARTHRISE: 1968</h5>
+		</div>
+
+		<div class="index2">
+				<h3 class="h3-blur" 	style="transform: translateY(-7px);">WE'RE TERRESTIAL<br>COMPOST, AREN'T WE?</h3>
+		</div>
+
+		<div class="index3">
+				<img src="/Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/img/dithering_relict_web.png" alt="">
+		</div>
+
+  <div class="menu">
+		<a href="file:///Users/janhusstedt/Dropbox/00_Thesis/05_Website/000_Code/assets/three.js-master/examples/healing.html">
+			<div class="chapter">
+      	<h1 class="h1-blur">HEALING OF <br>A DEFORMEND MATERIAL</h1>
+    	</div>
+		</a>
+
+
+		<div class="chapter">
+      <h1 class="h1-blur">THE <br>THEORY OF KNOWLEDGE</h1>
+    </div>
+
+		<div class="chapter">
+      <h1 class="h1-blur">DRIFT CARE-<br>FULLY AND COME BACK SOON</h1>
+    </div>
+
+		<div class="chapter">
+      <h1 class="h1-blur">THE ETERNAL PURSUIT OF TOGETHERNESS</h1>
+    </div>
+
+		<div class="chapter">
+      <h1 class="h1-blur">HEALING OF A DEFORMEND MATERIAL</h1>
+    </div>
+	</div>
+</div>
+
+  <div class="split2 right">
+    <div class="content">
+			<div id="abstract">
+<h2 class="blur">HEALING OF A DEFORMED MATERIAL</h2>
+<p class="blur">
+Europe, one of the sophisticated social environments humankind has developed during the Anthropocene, is facing a political backlash. Noting down a not-so-latent, almost peaking tendency towards right-wing and conservative politics, the book of relevant observations becomes heavier and heavier. The mode of operation becomes more sophisticated, we’re lost in connotations, the air to breathe is way thicker and our sight only takes us around the next corner, as if a sour rain is dripping on the foreheads. There is a war going down on the narratives of humanity and there is a lot – and a lot more – of brave activists and citizens bracing themselves against skepticism, hate and grief.
+<p>
+	<img src="" alt="">
+<p class="blur">
+What this planet feels like at the moment, comes very close to an artwork of one of my favourite surrealists and dadaists Max Ernst. Indeed political developments seem surreal and society appears disconnected from within. Max Ernst, by some people, was seen as a nutcase; an undisciplined thinker; but many more did not oversee his exceptional gifts and his power to startle and provoke. In 1933, after national-socialists took over power in post-war Germany, an objet-trouvé occurred made by him.
+		It is told that Max Ernst found a piece of plywood in the garbage backstage after it got trashed during the production of a surrealist movie called L’Âge d’Or he was even part of. The screenplay of L’Âge d’Or was written by Salvador Dali and Luis Bunuel. For it’s controversial humour part of the film’s legend is that fascist groups (Les Camelots du Roi and Les Jeunesses Patriotiques) rampaged at the legendary Paris cinema Studio 28, during its screening, wrecking the theatre and vandalising paintings by Buñuel’s fellow Surrealists, leading to the film’s suppression by rightist police chief Jean Chiappe. The production budget was a million francs, and was financed and produced by a nobleman who, yearly commissioned a film as a birthday gift to his wife. L’Âge d’Or is a black comedy piece soaked in religion. It hits on the Catholic Church and other power-constructs that work to oppress individual desire: “in a rigidly hierarchical society, sex – which respects no barriers and obeys no laws – can at any moment become an agent of chaos”. Those who benefit from the oppression are immaculately-suited mannequins, insensitive to imagination and the inner life. Max Ernst’s role was to play the leader of the men — in fact some bunch of ragged bandits.
+		However, during the shot he realised the irregularly plastered and painted boards, that were used as walls on set. He took the plywood that was left behind and painted three pictures on them, including Europe After Rain 1933.
+	</p><p class="blur">Max Ernst’s work has some traits of an alchemic approach, even he himself talks about the collage as visual alchemy. What the profound alchemist does is turning base metals into gold. Furthermore they put meaning into the basic elements and the mutations they created in order to create knowledge. Alchemists had a secret language that allowed them to pass on their research over centuries. What an visual alchemist like Max Ernst does then, is mixing several techniques and materials—in case of Europe After Rain I it was oil, gypsum, collaging— in order to mutate a simple, pragmatic object into another. Thus he shifted the object’s belongingness through purposefully adding layers, colour, borders and relief, leading to the meaningful surplus. This process led to plywood morphing into a speculative map embodying political counterculture, foreseeing consequences of nationalism and populism.
+		Max Ernst became a naturalised citizen of both the United States of America in 1948 and France in 1958. Being a rebel and surrealist, opposing rising populism of nationalist tendencies in the antebellum years of World War II, he eventually came to fame and fortune, in the ‘60s and ‘70s of the twentieth century. Most likely he turned out to be inspiring to a new generation of rebels, that correlated with the surrealist’s thoughts, expressions and foreseeing on war and violence. The hippie movement: a peaceful counterculture obsessed with universalism and lucidity shaped a new age and world order. An obsession perfectly intertwined with Earthrise in 1968 and Blue Marble in 1972, the first iconic images of Earth from space sparked awareness of our very planetary boundaries. These photographs do mark a period when a famous series of eco-driven content was published by Stewart Brand, which we know as Whole Earth Catalogue, still being famous and well received in 2018. It is said that this book changed the way humankind understood its habitat. If there hasn’t been any common ground for the hippie movement before, the Whole Earth Catalogue did provide it, eventually fuelling the discourse on climate and eco-responsibilities, feminism, self-care by creating and inspiring do-it-yourself culture. An internet before the internet so to say. It is the hippie culture, resisting the ‘ragged bandits’ in power still leading countries into conflict, resisting a military complex becoming established after WWII, resisting the petite bourgeoisie. Their autonomous thinking lead towards an era of political radicalism raising questions we can now find answered in our society.
+</p>
+<p class="blur">
+Regarding the current developments in polity, these implementations must have been cancelled. It must seem like all the knowledge coming from several scientific perspectives has never existed. So it might be the best of times for knowledge, but also the worst of times. Political extremes and their storytellers have taken over on our abilities and removed what has been taken for granted. On a cognitive level, these stories might focus only on truth or belief. The theory of knowledge tells us that only the deduction of both can result in knowledge. Knowledge based on one or the other, turns into a flourishing ground for skepticism or flatness. We have to acknowledge science as a deduction of both—truth and belief—so we can profoundly call something knowledge. A primer providing us with ideas of unity, togetherness, indifference and helping us growing greater than we are.
+		Knowing the fact that all the knowledge of the world lies in our hands, how can we zoom back in? What could that wizardry be? Something profoundly transformative from what the west invented as the oriental middle-east? Or from another place within our own borders, but no one ever dares to go? Are these men and women even trustworthy enough? Are they good or bad? Do they believe in the same thing? What is their sexual preference? How do they reproduce? Are the stories they are telling true? Will they overcome us? Even if, are they disciplined enough to do so? As long as humans reject the most universal ideas in their closest environments and instead stay suspicious of anything odd, strange or unrelated, no one will have an answer to that. It is not a coincidence that you’ll find globes in libraries. Knowledge is universal. Without encountering the other and the unknown, society will fall into insignificant pieces soon enough. Must humankind celebrate its cognitive death? </p>
+
+			</div>
+
+			<div class="footnotes">
+
+			</div>
+
+
+
+		</div>
+
+	</div>
+
+
+
+
+
+</body>
+</html>

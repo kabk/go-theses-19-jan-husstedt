@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+		<style>
+
+
+		#style-4::-webkit-scrollbar-track
+		{
+			-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+			background-color: #F5F5F5;
+		}
+
+		#style-4::-webkit-scrollbar
+		{
+			width: 0px;
+			background-color: #F5F5F5;
+		}
+
+		#style-4::-webkit-scrollbar-thumb
+		{
+			background-color: #000000;
+			border: 0px solid #555555;
+		}
+
+
+		::-webkit-scrollbar { width: 2px;}
+		::-webkit-scrollbar-button { background-color: #000; }
+		::-webkit-scrollbar-track { background-color: transparent;}
+
+		@font-face {
+							 font-family: "Galapagos A Light";
+							 src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/galapagos/GalapagosA-Light.otf");
+						 }
+						 @font-face {
+						 					 font-family: "Galapagos AB Light";
+						 					 src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/galapagos/GalapagosAB-Light.otf");
+						 				 }
+										 @font-face {
+										 					 font-family: "Galapagos ABC Light";
+										 					 src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/galapagos/GalapagosABC-Light.otf");
+										 				 }
+														 @font-face {
+														 					 font-family: "Galapagos A Regular";
+														 					 src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/galapagos/GalapagosA-Regular.otf");
+														 				 }
+														 				 @font-face {
+														 				 					 font-family: "Galapagos AB Regular";
+														 				 					 src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/galapagos/GalapagosAB-Regular.otf");
+														 				 				 }
+														 								 @font-face {
+														 								 					 font-family: "Galapagos ABC Regular";
+														 								 					 src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/galapagos/GalapagosABC-Regular.otf");
+														 								 				 }
+		@font-face {
+							 font-family: "Ginto Nord Black";
+							 src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/ginto/GintoNordTrial-Black.woff");
+						 }
+						 @font-face {
+						      			font-family: "Ginto Nord Bold";
+						      			src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/ginto/GintoNordTrial-Bold.woff");
+						    			}
+											@font-face {
+														 font-family: "Ginto Nord Medium";
+														 src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/ginto/GintoNordTrial-Medium.woff");
+													 }
+													 @font-face {
+																							font-family: "Ginto Nord Regular";
+																							src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/ginto/GintoNordTrial-Regular.woff");
+																						}
+																						@font-face {
+																											font-family: "Ginto Nord Light";
+																											src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/ginto/GintoNordTrial-Light.woff");
+																										}
+																										@font-face {
+																															font-family: "Ginto Nord Thin";
+																															src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/ginto/GintoNordTrial-Thin.woff");
+																														}
+
+
+																														@font-face {
+																																			font-family: "Favorit Light";
+																																			src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/favorit/Favorit_Light.ttf");
+																																		}
+																																		@font-face {
+																																							font-family: "Favorit Mono Light";
+																																							src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/favorit/FavoritMono-Light.otf");
+																																						}
+																																						@font-face {
+																																											font-family: "Favorit Lining Light";
+																																											src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/favorit/FavoritLining-Light.otf");
+																																										}
+
+
+
+
+
+
+
+
+
+
+		/* Split the screen in half */
+
+		html {
+		scroll-behavior: smooth;
+		}
+
+		body{
+			width: 500%;
+			scroll-behavior: smooth;
+			overflow-y: hidden;
+		}
+
+		.intro {
+			top: 0%;
+			left: 0%;
+			height: 4%;
+			width: 100%;
+			position: fixed;
+			z-index: 0;
+			background-color: yellow;
+			border-bottom: 1px solid black;
+
+
+
+		}
+
+		.landing {
+			top: 4%;
+			left:0%;
+			height: 100%;
+			width: 50%;
+			position: absolute;
+			z-index: 200;
+			background-color: white;
+			border-top: 1px solid black;
+
+
+
+		}
+
+		.footer {
+			bottom: 0;
+			height: 4%;
+			width: 100%;
+			position: fixed;
+			z-index: 0;
+			overflow-x: hidden;
+		}
+
+		.split {
+		  height: 100%;
+			width: 25%;
+		  position:absolute;
+			float:left;
+		  z-index: 0;
+			overflow-x: hidden;
+			border-left: 1px solid black;
+			border-top: 1px solid black;
+		}
+
+		.split2 {
+		  height: 100%;
+			width: 30%;
+		  position:absolute;
+			left:225%;
+		  z-index: 200;
+			overflow-x: hidden;
+			column-count: 2;
+			column-gap: 5em;
+
+		}
+
+
+
+
+		/* Control the right side */
+		.zero {
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,0,1);
+			border-right: 1px solid black;
+
+		 }
+
+		.one {
+			float: left;
+		  left:0;
+			top: 4%;
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,0,1);
+			border-right: 1px solid black;
+		}
+		.two {
+			float: left;
+			left:25%;
+			top: 4%;
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,0,1);
+			border-right: 1px solid black;
+
+		}
+		.three {
+			left:50%;
+			top: 4%;
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,0,1);
+			border-right: 1px solid black;
+
+		}
+		.four {
+			left:75%;
+			top: 4%;
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,0,1);
+			border-right: 1px solid black;
+		}
+		.five {
+			left:100%;
+			top: 4%;
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,0,1);
+			border-right: 1px solid black;
+		}
+		.six {
+			left:125%;
+			top: 4%;
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,0,1);
+			border-right: 1px solid black;
+		}
+		.seven {
+			left:150%;
+			top: 4%;
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,0,1);
+			border-right: 1px solid black;
+		}
+		.eight {
+			left:175%;
+			top: 4%;
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,0,1);
+			border-right: 1px solid black;
+		}
+		.nine {
+			left:200%;
+			top: 4%;
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,0,1);
+			border-right: 1px solid black;
+		}
+
+		/* If you want the content centered horizontally and vertically */
+		.menu {
+		  position: absolute;
+		  text-align: left;
+			margin-left: 7.5%;
+			margin-right: 7.5%;
+		}
+
+		/* Style the image inside the centered container, if needed */
+		.menu img {
+		  width: 250px;
+		  border-radius: 5%;
+		}
+
+		.content {
+		  position: absolute;
+		  padding-left: 10%;
+		  padding-right: 10%;
+		  text-align: left;
+			transition: all ease 0.25s;
+			-webkit-transition: all ease 0.25;
+		}
+
+		.header {
+			border-bottom: 0px solid black;
+
+
+		}
+
+		.header img {
+			-webkit-box-shadow: 0px 0px 5px 5px rgba(5,5,5,1);
+			-moz-box-shadow: 0px 0px 5px 5px rgba(5,5,5,1);
+			box-shadow: 0px 0px 5px 5px rgba(5,5,5,1);
+		}
+
+
+
+		.content:hover {
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,210,1);
+
+		}
+
+		.right2 img {
+		  width: 250px;
+			margin-left: 25px;
+			margin-top: 25px;
+		  border-radius: 0%;
+
+		}
+
+
+		/*
+		.blur {
+		   color: transparent;
+		   text-shadow: 0 0 1px rgba(0,0,0,1);
+			 -webkit-text-shadow: 0 0 1px rgba(0,0,0,1);
+			 -moz-text-shadow: 0 0 1px rgba(0,0,0,1);
+		}
+		*/
+
+		.blur2 {
+		   color: transparent;
+		   text-shadow: 0 0 .5px rgba(0,0,0,1);
+			 -webkit-text-shadow: 0 0 1px rgba(0,0,0,1);
+		   -moz-text-shadow: 0 0 1px rgba(0,0,0,1);
+		}
+		.text-indent {
+		  text-indent: 5em;
+		}
+
+
+
+
+
+
+
+
+		h1 {
+		  font-family: "Ginto Nord Regular";
+		  font-size: .625em;
+		  line-height: 1em;
+			text-transform: uppercase;
+		  src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/ginto/GintoNordTrial-Regular.woff");
+		}
+
+		.h1-blur {
+		   color: transparent;
+		   text-shadow: 0 0 2px rgba(0,0,0,1);
+		   text-indent: 1.5em;
+		   margin-left: 5%;
+			 transition: all ease 0.25s;
+			 -webkit-transition: all ease 0.25s;
+
+		}
+
+		.h1-blur:hover{
+			transform:translateY(5px);
+			-ms-transform:translateY(5px); /* prefix for IE 9 */
+			-webkit-transform:translateY(5px); /* prefix for Safari and Chrome */
+		}
+
+		h2 {
+		  font-family: "Ginto Nord Thin";
+		  font-size: 2em;
+			line-height: 1em;
+			text-align: center;
+		  padding-bottom: 10%;
+			padding-top: 10px;
+		}
+
+
+		h3 {
+			font-family: "Favorit Mono Light";
+		  font-size: .6em;
+			line-height: 1.5em;
+			text-transform: uppercase;
+			text-align: center;
+		  src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/ginto/GintoNordTrial-Medium.woff");
+		}
+
+		.h3-blur {
+			color: transparent;
+		  text-shadow: 0 0 .5px rgba(0,0,0,1);
+		  text-align: center;
+		  margin-left: 5%;
+
+		}
+
+		.footnotes {
+			font-family: "Favorit Mono";
+		  font-size: .5em;
+			line-height: 1.25em;
+		  src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/ginto/GintoNordTrial-Light.woff");
+			display: block;
+			text-align: justify;
+			margin-top: 20%;
+			margin-bottom: 20%;
+		}
+
+		.bibliography {
+			top:4%;
+			left:227.5%;
+			height: 100%;
+			display: block;
+			text-align: justify;
+			margin-top: .5%;
+			padding-top: 2.5%;
+			padding-left: 3%;
+			padding-right: 6%;
+			border-right: 1px solid black;
+			direction: ltr;
+		}
+
+		.acknowledgement {
+			top: 4%;
+			left:266.5%;
+			height: 100%;
+			width: 10%;
+			display: block;
+			text-align: left;
+			background-color: white;
+			padding-top: 2.5%;
+			padding-left: 3%;
+			padding-right: 6%;
+			border-right: 1px solid black;
+			border-top: 1px solid black;
+			direction: ltr;
+			font-size: .5em;
+		}
+
+
+		.p1 {
+			font-family: "Favorit Mono Light";
+			font-size: .5em;
+			line-height: 1.25em;
+			src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/ginto/GintoNordTrial-Light.woff");
+
+		}
+		.subtitle {
+			font-family: "Favorit Mono";
+		  font-size: .5em;
+			line-height: 1.25em;
+		  src: url("http://localhost:8888/three.js-master/driftcarefully_copy/assets/type/ginto/GintoNordTrial-Light.woff");
+			display: block;
+			text-align: center;
+		}
+
+
+		p {
+			font-family: "Favorit Light";
+			font-size: 1.15em;
+		  line-height: 1.25em;
+			hyphens: auto;
+		}
+
+		quote {
+			font-family: "Favorit Lining Light";
+			font-size: 1em;
+			line-height: 1.25em;
+			hyphens: auto;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:after{
+			text-decoration: none;
+		}
+		a:hover{
+			text-decoration-color: Blue;
+		}
+		a:active{
+			text-decoration-color: Blue	;
+		}
+
+
+		.thesis {
+			left: 1000px;
+
+		}
+
+		.rotate{
+			white-space: nowrap;
+			line-height: 1.25em;
+			margin-top: 300px;
+			/* Safari */
+		-webkit-transform: rotate(-90deg);
+
+		/* Firefox */
+		-moz-transform: rotate(-90deg);
+
+		/* IE */
+		-ms-transform: rotate(-90deg);
+
+		/* Opera */
+		-o-transform: rotate(-90deg);
+
+
+
+
+		}
+
+		#container {
+				width: 50%;
+			
+		}
+
+		#box {
+		    width: 100%;
+		    height: 2em;
+		    overflow: scroll;
+		  	direction:ltr;
+		}
+		#inner_box {
+		    width: 100%;
+		    height: 100%;
+		}
+		.item {
+		    width: 200%;
+		    height: 100%;
+				overflow: scroll;
+		  	direction:ltr;
+		}
+
+		button {
+			position: fixed;
+			background-color: #fff; /* Green */
+		  border: none;
+		  color: black;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 1.25em;
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,0,1);
+
+		}
+		button:hover {
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,210,1);
+
+		}
+		button:active {
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,210,1);
+
+		}
+		button:onclick {
+			background-color: rgba(255,255,255,1);
+			color: rgba(0,0,210,1);
+
+		}
+
+		.buttonleft{
+			left:.5%;
+			top: 5px;
+			float: left;
+		}
+
+		.buttonright{
+			left: 97.5%;
+			top: 5px;
+			float: left;
+		}
+
+
+		#triangle-left:before,
+		#triangle-right:before,
+
+
+
+
+		#triangle-left:before {
+			font-family: 'Favorit';
+			font-size: 1em;
+			content:'\2190';
+			top: 5px;
+			text-align: right;
+			-moz-transform: scale(-1, 1);
+			-webkit-transform: scale(-1, 1);
+			-o-transform: scale(-1, 1);
+			-ms-transform: scale(-1, 1);
+			transform: scale(-1, 1);
+		}
+
+
+		#triangle-right:before {
+			font-family: 'Favorit';
+			font-size: 1em;
+			content:'\2192	';
+			top: 5px;
+ 			text-align: left;
+			-moz-transform: scale(-1, 1);
+			-webkit-transform: scale(-1, 1);
+			-o-transform: scale(-1, 1);
+			-ms-transform: scale(-1, 1);
+			transform: scale(-1, 1);
+		}
+
+
+		</style>
+
+		<script src="http://localhost:8888/three.js-master/driftcarefully_copy/build/three.js"></script>
+		<script src="http://localhost:8888/three.js-master/driftcarefully_copy/js/controls/OrbitControls.js"></script>
+		<script src="http://localhost:8888/three.js-master/driftcarefully_copy/js/objects/Reflector.js"></script>
+		<script src="http://localhost:8888/three.js-master/driftcarefully_copy/js/objects/Refractor.js"></script>
+		<script src="http://localhost:8888/three.js-master/driftcarefully_copy/js/objects/Water2.js"></script>
+		<script src="http://localhost:8888/three.js-master/driftcarefully_copy/js/WebGL.js"></script>
+		<script src="http://localhost:8888/three.js-master/driftcarefully_copy/js/libs/dat.gui.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+<body>
+
+
+
+<div class="landing">
+	<div id="container">
+
+						<script>
+
+						if ( WEBGL.isWebGLAvailable() === false ) {
+							document.body.appendChild( WEBGL.getWebGLErrorMessage() );
+						}
+
+						var scene, camera, clock, renderer, water;
+						var torusKnot;
+						var params = {
+							color: '#ffffff',
+							scale: 4,
+							flowX: 1,
+							flowY: 1
+						};
+
+						init();
+						animate();
+
+						function init() {
+
+							// scene
+
+							scene = new THREE.Scene();
+
+							// camera
+
+							camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 0.5, 500 );
+							camera.position.set( 0, 90, 15 );
+							camera.lookAt( scene.position );
+
+							// clock
+
+							clock = new THREE.Clock();
+
+							// mesh
+
+							var torusKnotGeometry = new THREE.TorusKnotBufferGeometry( 3, 1, 256, 32 );
+							var torusKnotMaterial = new THREE.MeshNormalMaterial();
+
+							torusKnot = new THREE.Mesh( torusKnotGeometry, torusKnotMaterial );
+							torusKnot.position.y = 4;
+							torusKnot.scale.set( 0.0, 0.0, 0.0 );
+							scene.add( torusKnot );
+
+							// ground
+
+							var groundGeometry = new THREE.PlaneBufferGeometry( 90, 52 );
+							var groundMaterial = new THREE.MeshStandardMaterial( { roughness: 0.8, metalness: 0.4 } );
+							var ground = new THREE.Mesh( groundGeometry, groundMaterial );
+							ground.rotation.x = Math.PI * - 0.5;
+							scene.add( ground );
+
+							var textureLoader = new THREE.TextureLoader();
+							textureLoader.load( 'textures/mutate_low.mov', function ( map ) {
+
+								map.wrapS = THREE.RepeatWrapping;
+								map.wrapT = THREE.RepeatWrapping;
+								map.anisotropy = 32;
+								map.repeat.set( 1, 1 );
+								groundMaterial.map = map;
+								groundMaterial.needsUpdate = true;
+
+							} );
+
+							// water
+
+							var waterGeometry = new THREE.PlaneBufferGeometry( 90, 110);
+
+							water = new THREE.Water( waterGeometry, {
+								color: params.color,
+								scale: 2.5,
+								flowDirection: new THREE.Vector2( params.flowX, params.flowY ),
+								textureWidth: 512,
+								textureHeight: 1024
+							} );
+
+							water.position.y = 1;
+							water.rotation.x = Math.PI * - 0.5;
+							scene.add( water );
+
+							// skybox
+
+
+							// light
+
+							var ambientLight = new THREE.AmbientLight( 0xcccccc, 2.5 );
+							scene.add( ambientLight );
+
+							var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+							directionalLight.position.set( - 1, 1, 1 );
+							scene.add( directionalLight );
+
+							// renderer
+
+							renderer = new THREE.WebGLRenderer( { antialias: true } );
+							renderer.setSize( window.innerWidth, window.innerHeight );
+							renderer.setPixelRatio( window.devicePixelRatio );
+							document.body.appendChild( renderer.domElement );
+
+							// dat.gui
+
+
+							//
+
+							var controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+							//
+
+							window.addEventListener( 'resize', onResize, false );
+
+						}
+
+						function onResize() {
+
+							camera.aspect = window.innerWidth / window.innerHeight;
+							camera.updateProjectionMatrix();
+							renderer.setSize( window.innerWidth, window.innerHeight );
+
+						}
+
+						function animate() {
+
+							requestAnimationFrame( animate );
+
+							render();
+
+						}
+
+						function render() {
+
+							var delta = clock.getDelta();
+
+							torusKnot.rotation.x += delta;
+							torusKnot.rotation.y += delta * 0.5;
+
+							renderer.render( scene, camera );
+
+						}
+
+					</script>
+
+
+
+
+
+
+</div>
+</div>
+
+	<div class="intro zero">
+			<div class="header">
+					<h3>BA-THESIS&mdash;2019<span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Drift Carefully And Come Back Soon</h3>
+
+			</div>
+	</div>
+
+
+
+
+<div class="thesis">
+
+		<button class="buttonleft" onclick="scrollWin(-500, 0)"> <div id="triangle-left"></div> </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<button class="buttonright" onclick="scrollWin(500, 0)"><div id="triangle-right"></div> </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+	<script>
+	function scrollWin(x, y) {
+	  window.scrollBy(x, y);
+	}
+	</script>
+
+
+
+	<div class="split one">
+			<div class="content">
+				<div class="header">
+					<h2 class="blur">INTRODUCTION</h2>
+					<img src="http://localhost:8888/three.js-master/driftcarefully_copy/assets/img/IKR_2018_4_foto-1400.jpg" style="width:75%;margin-left:12.5%;margin-bottom:5%;" alt="">
+					 <div class="subtitle" style="width:75%;margin-left:12.5%;margin-bottom:10%;">Welcome To Pangea, 2018, Interkultur Ruhr </br> (Graphic Design: The Laboratory of Manuel Buerger)</div>
+				</div>
+					<p class="" style="margin-top: 7.5%;margin-bottom:25%;">
+					Pangea [9] describes a shift within society. A shift beginning scientifically on a map and within calculated models. Can Pangea happen within yourself? It is an universal idea, a scientific fictional theory, an attempt leading to the unification of continents. Thus it serves as a blueprint for togetherness in unity and difference [10]. Putting itself at the center of entanglement, Anthropos is exploiting its fellows and the planet it is living on. Further, it is ignoring its own capabilites. Can the pursuit of Pangea bring salvation to the troubles of the Anthropocene? Continental plates are in slow but constant motion, working on the unification of all continents. Assembling and re-assembling the crust over and over again, the planet is working steadily on separating and mingling populations and reshaping natural habitats. To make this ever-changing floor work for them, humans must establish new knowledge from other perspectives. Going deep spaces might rinse ideas to the surface, that yet haven&rsquo;t been encountered.
+					</br>Tapping on the cognitive abilities of humankind, the ideas of the world should help in times of trouble and help us growing greater than we are. Before going deep a current spirit has to be examined. This thesis is a heats up rigid patterns searching for a new state of togetherness. What knowledge could that be?</br>
+					</p>
+
+
+				</div>
+			<div class="footnotes">
+			</div>
+
+
+
+			</div>
+
+
+			<div class="split two">
+				<div class="content">
+					<div class="header">
+						<h2 class="blur">CELEBRATING COGNITIVE DEATH</h2>
+						<img src="http://localhost:8888/three.js-master/driftcarefully_copy/assets/img/EuropeAfterRain1942.jpg" style="width:75%;margin-left:12.5%;margin-bottom:5%;" alt="">
+						<div class="subtitle" style="width:75%;margin-left:12.5%;margin-bottom:10%;">Europe After Rain II, 1942, Max Ernst</div>
+					</div>
+						<p class="" style="margin-top:5%;margin-bottom:5%;">
+							Europe, one of the sophisticated social environments [1] humankind has developed during the Anthropocene, is facing a political backlash. [2] Noting down a not-so-latent, almost peaking tendency towards right-wing and conservative politics, [3]<span class="Apple-converted-space">&nbsp;</span>  the book of relevant observations becomes heavier and heavier. The mode of operation becomes more sophisticated, we&rsquo;re lost in connotations, the air to breathe is way thicker and our sight only takes us around the next corner, as if a sour rain is dripping on the foreheads. There is a war going down on the narratives of humanity and there is a lot &ndash; and a lot more &ndash; of brave activists and citizens bracing themselves against skepticism, hate and grief.</br>
+							<img src="http://localhost:8888/three.js-master/driftcarefully_copy/assets/img/Staubwolke_WTC.jpg" style="width:75%;margin-left:12.5%;margin-top:10%;" alt="">
+							<div class="subtitle" style="margin-bottom:10%;">Cloud of Dust after-WTC</div>
+							<img src="http://localhost:8888/three.js-master/driftcarefully_copy/assets/img/teaserbox_2448691265.jpg" style="width:75%;margin-left:12.5%;margin-bottom:7.5%;" alt="">
+							<div class="subtitle" style="margin-bottom:10%;">Microsphere Image of WTC Dust</div>
+							<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>What this planet feels like at the moment, comes very close to an artwork of surrealist and dadaist Max Ernst. Indeed political developments seem surreal and regarding politics society appears disconnected from within. Max Ernst, by some people, was seen as a nutcase; an undisciplined thinker; but many more did not oversee his exceptional gifts and his power to startle and provoke. [4] In 1933, after national-socialists took over power in post-war Germany, an objet-trouv&eacute; occurred made by him. What is the story behind this piece? It starts with the surrealist movie<em> L&rsquo;&Acirc;ge d&rsquo;Or </em>Max Ernst was part of. [5] Max Ernst&rsquo;s role was to play the leader of the men &mdash; in fact, some bunch of ragged bandits. The screenplay of <em>L&rsquo;&Acirc;ge d&rsquo;Or </em>was written by Salvador Dali and Luis Bunuel. The movie was such a controversy that it eventually provoked fascist groups to go on a serious rampage against it. During a screening at a famous cinema in Paris, some hooligans wrecked the theatre and it&rsquo;s interiors, ultimately leading to the suppression of the movie by the police chief. This interesting anecdote has nothing to do with the artwork itself in the first place, but certainly positions the movie in the political spectrum. <em>L&rsquo;&Acirc;ge d&rsquo;Or</em> was about individual desire and the rejection of power. The production budget of a million francs came from a nobleman who yearly commissioned a film as a birthday gift to his wife. <em>L&rsquo;&Acirc;ge d&rsquo;Or</em> is a black comedy piece soaked in religion, pushing against power-constructs that work to oppress individual desire. Those who benefit from the oppression are spotless mannequins, insensitive to the imagination and the inner life. Using sex and desire as an <quote>&ldquo;agent of chaos&rdquo;[6]</quote>  and driving force for the screenplay, the movie&rsquo;s essential message is to disrespect any barrier and disobey any law. It is told that Max Ernst, during the shot&mdash;maybe shooting at or throwing around some enemies&mdash;realized some irregularly plastered and painted boards, that were used as walls on set. After playing the leader of ragged bandits in the movie, being outside his role, he recognized the same boards in the garbage after the scenes were finished. He took the plywood that was left behind and painted three pictures on them. One of them is <em>Europe After Rain I</em>.<span class="Apple-converted-space">&nbsp;</span></p>
+							<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Alchemists had a secret language that allowed them to pass on their research over centuries. What the profound alchemist did is turning base metals into gold. Furthermore, they put meaning into the basic elements and the mutations they created in order to create knowledge. Essentially, he or she creates a change in value. Max Ernst himself refers to his body of work as visual alchemy too. What a visual alchemist like Max Ernst does then, is mixing several techniques and materials&mdash;in case of Europe After Rain it was oil, gypsum, collaging&mdash; in order to mutate a simple, pragmatic object into another. By doing so, he shifted the object&rsquo;s belongingness through purposefully adding layers, color, borders, and relief, leading to a meaningful surplus. This process led to plywood changing into a speculative map of Europe, foreseeing consequences of nationalism and populism with landscapes and borders out of place. The work&rsquo;s autonomy might rose with the chaos, which has been central to it. Europe After Rain I might have been a consequence of the eros of <em>L&rsquo;&Acirc;ge d&rsquo;Or. </em>Both works alike do not respect any barrier or obey any law.<span class="Apple-converted-space">&nbsp;</span></p>
+							<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>In <em>Europe After Rain II </em>the artist Max Ernst already processes the peaking violence and incredible forces that went down on Europe from a much closer perspective. Painting Europe as a traumatized and ruined landscape, the observer already notices the on-going mechanics and consequence of war: the painting is full of deformation. Notice the rusty and used color palette, see the few naked, disappearing bodies as vanishing desire and the bird-human (Max Ernst&rsquo;s Alter Ego) as a broken citizen of a free world that has been taken away. Whether it be the surreal landscape resembling the street view of a bombed and destroyed avenue somewhere, or whether it be the bone-like structures representing lifeless human and animal bodies, <em>Europe After Rain II</em> it is full of death and dark, twisted transformation, certain negativity absorbing any desire. The painting, in fact, is the most horrible painting one can look at and should be memorized very well.<span class="Apple-converted-space">&nbsp;</span></p>
+							<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Eventually, the war was over, resources we&rsquo;re down and the trauma was huge. The hearts and minds, the bodies that carried them and the structures the kept them flowing, were ready for healing. Being ripped apart and traumatized for too long, having relentlessly given hope and resources to a rapid end of <em>WWII</em>, the post-war period is marked by a hunger for far more rational choices, some universal rules to be applicable for anyone. Humankind was desiring a new age of togetherness. What could have been the repair for that global crack which appeared? The hippie movement: a peaceful counterculture obsessed with a rational universalism. An obsession perfectly intertwined with <em>Earthrise</em> in 1968 and <em>Blue Marble </em>in 1972, the first iconic images of Earth from space sparked awareness of our very planetary boundaries, giving evidence and justification for a rational universalism driven by science and knowledge. An obsession for self-optimization and self-improvement was born, which is an incredible shift after experiencing years of global war and trauma, simply exploitation by all means. Especially <em>Blue Marble</em> completely flipped the correlation between human and planet. Not only, but it was also bullet-proof that the earth is not a disk. Moreover, people all over the world started questioning the relationship humans had with each other and further which relationship humankind had with its planet. Eventually, the field of ecology became a serious topic. It is the first longer period in the 20th century where men and women all over the world thought about the planet&rsquo;s resources, how humankind and civilization are essentially exploiting it for its well-being and well-functioning. Both <em>Blue Marble</em> and <em>Earthrise</em> do mark a period of eco-driven content published by Stewart Brand, which we aspire, reject or simply know as <em>Whole Earth Catalogue</em>, still being famous and well received in 2018. If there hasn&rsquo;t been any common lecture for the universal movement before, the <em>Whole Earth Catalogue </em>did provide it, eventually fuelling the discourse on climate and eco-responsibilities, feminism, self-care by creating and inspiring a solid do-it-yourself culture. It is said that this book changed the way humankind understood its habitat. An internet before the internet, giving people answers on how to do it themselves. [7] It is the hippie culture, resisting the &lsquo;ragged bandits&rsquo; in power still leading countries into conflict, resisting a military complex becoming established after <em>WWII</em>, resisting the petite bourgeoisie. Their autonomous thinking lead towards an era of political radicalism, pointing at the togetherness of things and people, raising questions we can now find answered in our society. [8] </p>
+							<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Regarding the current developments in polity, these achievements must have been declared as invalid. It must seem like all the knowledge coming from several scientific perspectives has never existed. So it might be the best of times for knowledge, but also the worst of times. [9] Political extremes and their storytellers have taken over on our abilities and removed what has been taken for granted. On a cognitive level, these stories might focus only on truth or belief. It is not enough to simply know something or believe in something. The theory of knowledge tells us that only the deduction of both can result in knowledge. Knowledge-based on one or the other turns into a flourishing ground for either skepticism or flatness. We have to acknowledge science as a deduction of both&mdash;truth and belief&mdash;so we can profoundly call something knowledge. A primer providing us with ideas of unity, togetherness, indifference and helping us growing greater than we are.<span class="Apple-converted-space">&nbsp;</span></p>
+							<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>What is it now that gives us back the power to improve ourselves in times of trouble? How can we make use of the multiplicity of knowledge? Regarding populism, nationalism, racism, gender phobia and sexism, will human potential unfold into a movement growing greater than we are? Knowing the fact that all the knowledge of the world lies in our hands, how can we zoom back in? What could that wizardry be? Something profoundly transformative from what the west invented as the oriental middle-east? [10] Or from another place within our own borders, but no one ever dares to go? Are these men and women even trustworthy enough? Are they good or bad? Do they believe in the same thing? What is their sexual preference? How do they reproduce? Are the stories they are telling true? Will they overcome us? Even if, are they disciplined enough to do so? As long as humans reject the most universal ideas in their closest environments and instead stay suspicious of anything odd, strange or unrelated, no one will have an answer to that. It is not a coincidence that you&rsquo;ll find globes in libraries. Knowledge is universal. Without encountering the other and the unknown, society will fall into insignificant pieces soon enough. Can we imagine a new world, a Pangea celebrating humankind and togetherness? Or, must humankind celebrate its cognitive death?
+							</p>
+
+							<div class="footnotes">
+								1	Harari, Yuval Noah (2015): Why humans run the world. Retrieved from https://www.
+									youtube.com/watch?v=nzj7Wg4DAbs&t=31s<br>
+								2	Roger Cohen, NY Times (https://www.nytimes.com/2016/04/05/opinion/the-poli
+									tics-of-backlash.html)<br>
+								3	Bennhold, Kathrin (2018): Chemnitz Protest Show New Strength of Germany&rsquo;s Far
+									Right. Retrieved from New York Times https://www.nytimes.com/2018/08/30/world/eu
+									rope/germany-neo-nazi-protests-chemnitz.html<br>
+								4	Russell, John (1976): Max Ernst, Catalytic Figure in 20th Century Art, Dies. Re
+									trieved from New York Times Archive https://archive.nytimes.com/www.nytimes.com/
+									learning/general/onthisday/bday/0402.html<br>
+								5	L&rsquo;&Acirc;ge d&rsquo;Or  translates to Golden Age &mdash; a period signifiying peace, harmony,
+									stability, prosperity<br>
+								6	Gonzales, Ed (2002): The Savage Poetry of Luis Bunuel. Retrieved from
+								Slantmagazine https://www.slantmagazine.com/features/article/the-savage-poetry-of-luis-bunuel
+								7	https://www.wikihow.com/<br>
+								8	Cadwalladr, Carole (2013): Stewart Brand&rsquo;s Whole Earth Catalog, the book that 		changed the world. Retrieved from The Guardian https://www.theguardian.com/		books/2013/may/05/stewart-brand-whole-earth-catalog<br>
+								9	Jansen, Jos (2018): Universe / Facts in the post-truth era. FineBooks (Jos Morree) <br>
+								10	Said, Edward (1978): Orientalism. Pantheon Books
+							</div>
+
+					<div class="footnotes">
+
+					</div>
+
+
+
+				</div>
+			</div>
+
+			<div class="split three">
+				<div class="content">
+					<div class="header">
+						<h2 class="blur">HEALING OF</br>A DEFORMED</br>MATERIALISM</h2>
+						<img src="http://localhost:8888/three.js-master/driftcarefully_copy/assets/img/postmatter2.jpeg" style="width:75%;margin-left:12.5%;margin-bottom:5%;" alt="">
+						<div class="subtitle" style="width:75%;margin-left:12.5%;margin-bottom:10%;">POSTmatter, Jussi Parikka</div>
+					</div>
+						<p>In his paper, <em>A Geology of Media</em> Jussi Parikka writes about materiality as a ground for media and culture. According to Parikka, <quote>&ldquo;the human being is primarily a &lsquo;so-called Man&rsquo; formed as an aftereffect of media technologies.&rdquo; [11]</quote> By creating an alternative media materialism he first distinguishes between materialism and idealism when we refer to technology:<quote>&ldquo;do we refer to it as the opposite of spiritual or ethical (as in expressions of disgust toward the materialist aspects of consumer society) or refer to the reality of machines and technology that structure our lives.&rdquo;</quote></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>In a spiritual or ethical sense, we can start questioning our media consumption and the side effects that come with it. Addiction, leading to serious states of depression and anxiety. Dependence, on certain platforms or manufacturers of media and its devices. Owing to the great stories we&rsquo;re getting told and the aesthetics around it, our ability to believe in perfection is tapped. Who is sure to not fall for a sublime piece of rare earth powered by a lifetime lithium battery? Should we rather accept an accelerated reality and make platforms a good place? How could we raise awareness for media usage in a technological era? Can technology be any good in times of trouble? Can we walk together in real life too?<span class="Apple-converted-space">&nbsp;</span></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Luis Ortega Govela and Olivia Erlanger investigate the history of the garage, with their book <em>Garage, Hate &amp; Suburbia</em>. The Garage, a room which would shift its usage through years and decades, to become a multipurpose room: storing irrelevant objects, fixing the lawnmower and a place to be for yourself with a beer. It was the perfect place for retreat. <quote>&ldquo;Cleansing the mind of how things should be, to think about how they could be, the garage offered the safe ground for an illusion to grow in private before they could be challenged.&rdquo;[12]</quote> During the &lsquo;60s and &rsquo;70s, when society was fed by spiritualism, counterculture and do-it-yourself attitude no one else than Steve Jobs <quote>&ldquo;operated within delusion, manipulating his existence into a new identity.&rdquo;[13]</quote> Did a reality distortion field pop up with the garage? What was its influence on human development? Founding their enterprise in a garage, it was the place where Steve Jobs and Frank Wozniak could forget about reality and envision technology and how it could be. By now we are spending considerable amounts of time and money on that technology that was born in the garage. The garage, where one can be for himself, isolated, gave birth to technologies that provide us with a strange mix of closeness and distance. As if technology has embodied the garage, we can be alone while being together, when using it. Steve Jobs alike sat in the garage on his own, maybe with his friend Steve Wozniak, perhaps very close to the living room that has been robbed of its communal function for the family. Instead, he chose to stay in the reality distortion field. Instead, he left everything behind to work relentlessly on his visionary ideas that shall make the world a better place. What did Steve Jobs actually mean when he said it just works. &mdash; the garage and the reality distortion field? The garage just works the endless self-update. As if there is nothing else to win or lose, to think or laugh about. About living in the suburbs, Olivia Erlanger states, <quote>&ldquo; there was no culture, there were no people, there was nothing but the inside of a car and potentially driving somewhere to get high away from parents, teachers, and ultimately ourselves.&rdquo;</quote> Given the hyper-normalized suburban culture, given the garage, later the technology embodying garage-ism, it became a concept of hyper normalcy, escapism, and loneliness. Steve Jobs thought he had done counter-culture, a radical do-it-yourself endeavor, leading to liberation and progress. Somehow it didn&rsquo;t turn out that way, but any big company that was a start-up once, is still romantically bathing in narratives of how small they started and how family-like their working environments are. Behind the back, they make big money. Is this how counterculture is eventually swallowed by capitalism and conservatism? Isn&rsquo;t it what the garage spirit tried to overcome in the &lsquo;60s and &lsquo;70s? Does it all come back now? Who will try again on these premises?</p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Sadly, in the political landscape, we can recognize how a mode of isolation is used to make it hard for other people to change themselves, change their social status, change their homes and destinations. What is so wrong about it? Does it correlate to the isolated architecture where pioneering technology has been invented? Technology that has been misused for political warfare later on. Did the architecture of the creator become the architecture of the user? Can technology distort the user&rsquo;s mind and thus the political landscape?</p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Technology and its sublime can certainly be a trickster, fuelling truth and belief. [14] Minimizing the difficulty of using technology, increasing its parameters, added surplus level of lightness and powerfulness, that made it easy fostering discouragement and resentment against human achievements. Gifted with the ability to create and use technology, where should humankind go from now on? How is it spirited? Where do humans position themselves? Can we stop bottling up? Shall we all be in the garage and isolate? Like, together? How could the architecture of the user look like? What shall it produce? Can the ego&rsquo;s nature shift from isolation towards togetherness?<span class="Apple-converted-space">&nbsp;</span></p>
+						<div class="footnotes">
+							11	Parikka, Jussi (2015): A Geology of Media (Electronic Mediations). University of 		Minnesota Press - p.14 (PDF)<br>
+							12	13	Erlanger, Olivia & Govela, Luis Ortega (2018): Garage. Massachusetts Institute of Technology Press <br>
+							0 In mythology change is depicted as a trickster, shapeshifting, cruel, shifty character not allowing any loyalty and predictability. In norse mythology, the unknown is depicted as an enigmatic character. Loki is able to fly, to change shape, to give birth, to throw fire, he is a true wizard, a trickster god. But most of all he, she or it walks alone. With their anonymous companions and animals, the image of the trickster is charged and enlightend with a symbolism that is slightly dark and evil. A wolf, a snake and a wicked girl. Are these characters somehow representative for minorities or attitudes that are in need of a world to be changed? Or in constant change in order to survive? Still, trickster characters and the ability of shapeshifting can be found in greek mythology as well. Norse and greek mythology alike, use shapeshifting to tell stories about love, power, defeat and change. Further, the supposedly wrongdoings of the trickster are mostly punished, but if done so, enlightenment follows up, that either manifestates itself in escape of the trickster and rebirth of light, or in contrast, forgiveness, acknowledgement and integration of the character in the Pantheon of Gods.<span class="Apple-converted-space">&nbsp;</span></p>
+
+						</div>
+
+
+
+				</div>
+			</div>
+			<div class="split four">
+				<div class="content">
+					<div class="header">
+						<h2 class="blur">BENDING</br>ANONYMOUS</br>MATTER</h2>
+						<img src="http://localhost:8888/three.js-master/driftcarefully_copy/assets/img/rareearth.jpg" style="width:75%;margin-left:12.5%;margin-bottom:5%;" alt="">
+						<div class="subtitle" style="width:75%;margin-left:12.5%;margin-bottom:10%;">Rare Earth, Sternberg Press</br> (Graphic Design: David Rudnick)</div>
+					</div>
+					<p>
+						<p>What if media materialism is not something that hones in on the machines only? [14] Forgetting to know ourselves, we need to invest research into the resources we&rsquo;re using and on the geology of it. That material underlying the plates we live upon, does it interfere with us? Is it possible to extract conclusions on the influence on human behavior? And even if, will humanity be ready for it?</p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>In the book, Rare Earth Nadim Samman opens the dialogue with the reader by questioning what separates moments of human endeavor from each other? History and science give us measurable evidence. Binding those materials into a flexible map for pragmatic knowledge of existence, humans can mutate, navigate and investigate beyond current horizons. [15] </p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>The term of psycho-geophysics, re-introduced by Jussi Parikka in his publication <em>A Geology of Media</em> in 2015, describes a field of speculative knowledge or aesthetics where technology and society are combined with a specific perspective on the geophysical. The trajectory of this conceptual ground refers to geology: a science about the ground beneath our feet. Its history and constitution, the systematic study of the various levers, layers, strata, and interconnections that define the earth. [16] Talking about these interconnections means to track down which materials are used, that built our hyper-individualistic phantasies and fuels the ego. User interfaces and experiences are created in industrialized manners. Coming in shapes calculated and designed with software running on plates and batteries deriving from the same materials, which they&rsquo;re supposed to bring in shape again. Some inorganic entity which we create out of rare earth and lithium, to establish and keep up our daily routines and relationships. Are we connected to the specific materials, coming from anonymous mines, dug out by anonymous workers?</p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Urging for individuality in the technological era is necessarily demanding the constant production of new media and devices. Whether it be to replace an older product or to make it better in itself, its process includes geo-trauma and climate change. But we want to show ourselves all the time and be connected while being in the individual bubble. Do we have to? We hold the privilege of togetherness in our hands, the sacred common ground of our times and could do more useful things than just presenting ourselves. It is a matter of awareness and how far one is willing to question himself. Further, the platforms we&rsquo;re virtually moving and connecting on do not provide a sense of communal togetherness. Of course, this is how platforms sell themselves, hence triggering a human instinct, but this is not what it is. Moreover, it is a digital privilege that does not exist everywhere in the world. And necessarily, this placebo for real-life togetherness has to have its industrial fundament from somewhere else than where it is sold. Slavery just works. The price: while geo-traumatizing the planet, we are exploiting labor resources in countries such as Chile, Australia, Portugal, China, Australia, Russia, Brazil, Thailand, India, Malaysia, Vietnam [17] and in African countries, [18]  where children dig with their bare hands after materials the industry is desperately craving for. This backdrop, not only in the 21st century, is usually taken for granted or carefully kept at a distance. We&rsquo;re using a lot of resources for progress and perfection. Our user ego creates a demand on limited resources that cannot be satisfied forever. If we think of connectedness in terms of transportation, humans are adding up to the planetary trouble as well, since new technologies for new mobilities highly depend on lithium and copper. Along with other rare earth materials for user interfaces that will be necessary to create the experiences the mobility industry will have developed for us. We can find deep mining wholes all over the planet caused by our desire for feeling better and perfect. It necessarily brings humankind steadily further into climate change and turns the planet into a geo-traumatized subject.<span class="Apple-converted-space">&nbsp;</span></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Throughout centuries, the relationship between slavery and freedom creates wealth and power on one hand. Poverty and exploitation on the other. Whenever we create global constructs, explore new horizons, dream the dreams of perfection, we do it in such a manner, that individual costs are high for those who are unseen. Thinking of other plantations, Hank Willis Thomas, African-American concept artist, born 1976, tangles the problematic relationship between corporate culture and black slavery, especially in the context of African-American or Black people.<span class="Apple-converted-space">&nbsp;</span></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Regarding corporate aesthetics, we&rsquo;re supposed to fall for day by day, artist and Liverpool native Kate Cooper critically investigates the relationship with consumer aesthetics that <quote>&ldquo;encompasses digital bodies, the language of mass-advertising and a move beyond representation.&rdquo;[19]</quote> Engaging with the audience her work is labeled with the glossy aesthetics of consumer capitalism, which have a certain effect. We find them especially in TV commercials or video game graphics. [20] They immediately trigger some physical and aesthetic attraction. Kate Cooper uses capitalist materials, coming from deep mines, transformed into shiny products. She re-assembles them in an exaggerated manner and through redirecting polished aesthetics she gives evidence to capitalist mannerism. Are we triggered mannequins? We may have to find ways of resisting consumer aesthetics that come with the advertisements, artworks, products, and self-representations we find on around every corner and supremely on digital platforms.<span class="Apple-converted-space">&nbsp;</span></p>
+						<p>In <em>Platform Capitalism</em>, Nick Srnicek comments the rise of platform-based businesses as a necessity of capitalism to ensure its survival, which it is not capable of by traditional means. He refers to monopolistic enterprises basing their business on collecting, controlling and using mass data to achieve economic dominance. The model is drawn upon an insatiable thirst for data, premised upon bringing different groups together. [21] This works perfectly for some, but especially troublemakers from the arts and culture might not find the togetherness since their agenda is rather multiple and based on rather abstract values that cannot be measured. As a business client, you have a certain plan, a certain aesthetic, which makes using the platform a measurable endeavor. Go online and grow your practice, put out your work, make contacts, get commissioned. Platforms are designed as a mechanism for extracting and using their data. [22] Providing the infrastructure and intermediation between different groups, platforms place themselves in a position in which they can monitor and extract all the interactions between these groups. Platform capitalism is using the human urge of togetherness, creating a construct and human flow. Within our urge of not being alone, in our urge for kinship and friendship, feeling alien to the circuit of self-representation, we&rsquo;re steadily exploiting our planet and ourselves. As much as the mass-production of digital technology is problematic to our planet, the dependence of platform capitalism is to humans. It is trying to tell us what to wear when to work out, what music to listen to, which concert to visit &ndash; creating a lifestyle according to data that has been collected about us. This will make demands on how we position ourselves as members of a consumer society. Basically which path to take and where to put yourself in the spectrum of modern realities, regarding questions of relationships, income, housing, and mobility. If we want to find forms of resistance, how can such a resistance look like without neglecting the technological reality? Shouldn&rsquo;t we all have a purposeful and good intended online life? Couldn&rsquo;t the user and consumer architecture be a little different? Should we use platforms in specific ways only? What would total collectivism look like?</p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>Staying absent on all channels may lead to depressing isolation, a nostalgic return to nature to anachronism. On one hand, we don&rsquo;t need another update. On the other, we don&rsquo;t have to delete our profiles or cause a break-down of platforms. [23]  Our dependency on such technology definitely influences the communal and collective spirit in real life by creating a singularity. No doubt, that we need to make use of such, but we might rethink our manners. Are there other ways than Facebook to know what is happening around my location? Why do I need Instagram to know what my friends are doing? Do we need more group chats to feel togetherness or should we improve our language and how we treat each other day by day? Are we really celebrating kinship and friendship or are we trying to do the right things in the wrong way?</p>
+						</p>
+						<div class="footnotes">
+						14	Parikka, Jussi (2015): A Geology of Media (Electronic Mediations). University of Minnesota Press <br>
+						15	Laboria Cuboniks (2015): Xenofeminism, A Politics for Alienation. Retrieved From Laboria Cuboniks http://www.laboriacuboniks.net/20150612-xf_layout_web.pdf <br>
+						16	Parikka, Jussi (2015): A Geology of Media (Electronic Mediations). University of Minnesota Press &mdash; p.16 (PDF)<br>
+						17	Amanda Kay (2018): 8 Top Countries for Rare Earths Prodcution. Retrieved from Rare Earth Investing News https://investingnews.com/daily/resource-investing/critical-metals-investing/rare-earthinvesting/rare-earth-producing-countries/<br>
+						18	Ian Coles, Mayer Brown (2017): Africa holds promise of rare earth riches. Retrieved from Financial Times https://www.ft.com/content/88abbe52-0261-11e7-aa5b-6bb07f5c8e12<br>
+						19	Ugelvig, Jeppe (2018): Kate Cooper: Hypercapitalism and the digital body. Retrieved from DIS Magazine http://dismagazine.com/dysmorphia/66668/kate-cooper-hypercapitalism-and-the-digital-body/<br>
+						20	Ugelvig, Jeppe (2018): Kate Cooper: Hypercapitalism and the digital body.
+						Retrieved from DIS Magazine http://dismagazine.com/dysmorphia/66668/kate-cooper-hypercapitalism-and-the-digital-body/<br>
+						21	Facebook and Google connect advertisers, businesses, and everyday users; Uber connects riders and drivers; and Amazon and Siemens are building and renting the 		platform infrastructures that underlie the
+						contemporary economy.<br>
+						22	cf. Srnicek, Nick (2016): Platform Capitalism. Retrieved from Juncture <br>
+						https://rampages.us/goldstein2017capitalism/wp-content/uploads/sites/24780/2017/08/Srnicek-2017-Juncture.pdf<br>
+						23	cf. Srnicek, Nick (2016): Platform Capitalism. Retrieved from Juncture <br>
+						https://rampages.us/goldstein2017capitalism/wp-content/uploads/sites/24780/2017/08/Srnicek-2017-Juncture.pdf<br>
+
+						</div>
+
+
+				</div>
+			</div>
+			<div class="split five">
+				<div class="content">
+
+						<div class="header">
+						<h2 class="blur">A STATE OF CHANGE</br></h2>
+						<img src="http://localhost:8888/three.js-master/driftcarefully_copy/assets/img/Monsters2.jpeg" style="width:75%;margin-left:12.5%;margin-bottom:5%;" alt="">
+						<div class="subtitle" style="width:75%;margin-left:12.5%;margin-bottom:10%;">Monsters, Lee Bul
+						</div>
+						</div>
+
+						<p>
+							<p>Is alienation the mode of operation or at least a stepping stone for shaping togetherness? Alienation, the mutated meditation? Will an internal repair give birth to a process, channeling synergies? Will human be able to fill the cracks working underneath its superficial existence?<span class="Apple-converted-space">&nbsp;</span></p>
+							<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Returning towards an idealized anachronistic understanding of our existence might end up in a never-ending hangover by inventing placebo after placebo. A pseudo-substitute for our desire for perfection. Alienate yourself, embrace the void and become your own audience. Nietzsche wrote that the abyss is something you shouldn&rsquo;t battle with. But he perhaps meant something different. Navid Nuur accordingly &ndash; a Dutch-Iranian painter and artist using alchemy as a metaphor &ndash; pledges that there is some material in the void, a substance that offers a substance that can be addressed and understood. Eventually, you might transcend yourself and come back from the abyss as a different person. The void offers a place or a scenario where transformation is possible.</p>
+							<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Further, Nietzsche wrote about monsters one shouldn&rsquo;t battle with when seeing them. He urges, that one will become the monster and the abyss will gaze back into one&rsquo;s eye. [24] He points out the danger of infinite paralyzation while being alienated in the abyss. Further, Nietzsche might offer a proposition that urges the monster in everyone. From that perspective, the abyss (the unknown) and the monster (the other) become agents for improvement. A deep-time space and experience that one has to overcome the boundaries of the self. Thus, look into the abyss, if you&rsquo;re afraid of what is out there. Drift carefully and come back soon! In that void we&rsquo;re all alienated from ourselves, comprehending the world as a material that is in constant change. Is it the process of a new becoming of yourself?<span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+							<p>Taking the position of an outsider, feeling the alienation of someone who is outside of it, your problems couldn&rsquo;t be more obvious now. What can we do about it? Acknowledging the fact of loneliness, alienation shouldn&rsquo;t be a tool for isolation? It should be a tool for knitting kinship and create togetherness. [25] </p>
+							<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>The earlier humankind fixes its current trauma the better. <quote>&ldquo;What is at stake is opening oneself up to the idea that there is something beyond the thinkable,&rdquo;</quote> writes German Philosopher Hans-Christian Dany. With an understanding for the possible impossibility of human endeavor &ndash; the unreachable golden pot &ndash; he continues on the importance of the unknown <quote>&ldquo;even if man is not capable of thinking this something, he can incorporate it hypothetically, as a blind spot that remains blind, embarking an adventure of a speculative love of the unthinkable.&rdquo;[26]</quote> Just as alchemy refers to magical chemistry that is able to change ordinary materials into gold or an elixir, must human find its philosopher&rsquo;s stone? Or new materials that challenge new meanings? A new mutation, exploring the faculties and future [27] of the human flesh is inevitable, in &ldquo;order to leave the confines of his thought and its limited relation to people and things.&rdquo; [28]<span class="Apple-converted-space">&nbsp;</span> </p></p>
+							<div class="footnotes">
+								24	&ldquo;He who fights with monsters should look to it that he himself does not become a monster. And if you gaze long into an abyss, the abyss also gazes into you.&rdquo; &mdash;
+								org.: Wer mit Ungeheuern k&auml;mpft, mag zusehn, dass er nicht dabei zum Ungeheuer wird. Und wenn du lange in einen Abgrund blickst, blickt der Abgrund auch in dich hinein. &mdash; Friedrich Nietzsche, Beyond Good And Evil
+								25	cf. Laboria Cuboniks (2015): Xenofeminism, A Politics for Alienation. Retrieved From Laboria Cuboniks http://www.laboriacuboniks.net/20150612-
+									xf_layout_web.pdf<br>
+								26,28	Lauwaert, Maaike & van Westrenen, Francine (2017): Facing Value, Radical Perspectives from the Arts.VALIZ & STROOM DEN HAAG &mdash; p.329<br>
+								27	cf. Klossowski de Rola, Stanislas (2013): Alchemy, The Secret Art. Thames & Hudson<br>
+
+							</div>
+
+
+
+				</div>
+			</div>
+			<div class="split six">
+				<div class="content">
+					<div class="header">
+						<div id="abstract">
+							<div class="header">
+								<h2 class="blur">THE ETERNAL PURSUIT OF TOGETHERNESS</h2>
+								<img src="http://localhost:8888/three.js-master/driftcarefully_copy/assets/img/PangeaUltima_med.jpg" style="width:75%;margin-left:12.5%;margin-bottom:5%;" alt="">
+								<div class="subtitle" style="width:75%;margin-left:12.5%;margin-bottom:10%;">Pangea Ultima</div>
+							</div>
+					</div>
+
+
+
+						<p>If we want to imagine Pangean unity, what could progress be on that hypothetic island as big as that? What would be the consequence of pulling all continents together? The realization that one human, is the biggest threat to one another? Or, could human belief, once again, flip into a single-world-delusion, with rules hard-wired to nature? Another creation of <em>&Uuml;bermensch</em> [29] who will necessarily create opposing <em>Untermenschen</em> which will necessarily be racist? Will the world literally become a disk again? Anything could happen, in a big flat like that. If we take Pangea as a blueprint for a society standing together, what stories are we going to tell? What thoughts to carry on with?</p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>The fear of the other is the main force in splitting our political and social system. How can we solve this extraordinary human crisis? What shall be poured into the cracks? Uncertainty about the other must be resolved. Humankind must open up and reveal its cracks. It might be a meaningful experience, to drift into spaces of becoming, detach itself from the boundaries and borders it is given into, to fulfill a healing process that has been postponed because of ignorance and fear. In her book <em>Staying With The Trouble: Making Kin in the Chtulucene</em>, professor and feminist sociologist Donna Haraway states &ldquo;It matters what matters we use to think other matters with; it matters what stories we tell to tell other stories with; it matters which knots knot knots, what thoughts think thoughts, what descriptions describe descriptions, what ties tie ties. It matters what worlds make worlds, what words make stories.&rdquo; [30] Further, she argues that naming an epoch has to do with certain parameters that can be measured &ndash; parameters such as &ldquo;scale, rate/speed, synchronicity, and complexity&rdquo; [31] &ndash; and thus are merely a systemic phenomena referred to with various names at various times. Unless you ask when changes in degree, become changes in kind? [32] With systemic phenomena, she might point out constructs of power and their consequences: nationalism and its resentful grief, capitalism and its hyper-individualism, Catholicism and its repression of sex and desire, technology and its geo-trauma and exploitation. Phenomena that make societies act in a certain way and repress unwanted desires.</p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>What shapes the Anthropocene nowadays? The discourse on the Anthropocene is very much related to climate change, but it is also more than that. Haraway argues that it&rsquo;s also about &ldquo;toxic chemistry, mining, depletion of lakes and rivers, ecosystem simplification&rdquo;, moreover about &ldquo;vast genocides of people in systemically linked patterns.&rdquo; [33]</sup> An epoch not worth to be called an epoch, because it is not about cultivating; it is nothing more than about the destruction of places and times of refuge for people and other critters through the Anthropos. The Anthropocene is a boundary for re-world-ing in rich cultural and biological diversity. [34] Furthermore, she goes against the term Anthropocene and advocates to be alien to this terminology. She says that the human is &ldquo;more-than-human&rdquo; [35]</sup>, moreover an assemblage of organic species and physical actors. As her title suggests, it is in the difficulty and the mess that Haraway works.</p>
+						<p>&ldquo;No species,&rdquo; says Haraway, &ldquo;not even our own arrogant one pretending to be good individuals in so-called modern Western scripts, acts alone.&rdquo; [36] Migration and fluctuation is an omnipresent movement. It is a natural phenomenon that regulates the togetherness and entanglement of many realities [37]</sup>&ndash; whether it is in Amsterdam or Berlin, in Europe or as a global phenomenon. Migration is a process that happens since the beginning of humankind about 2.5 million years ago. Our very own nature and the one of our planet is a permanently shifting cluster between multiple narratives, beliefs, and truths competing or collaborating with each other. Any history is made from and with migration and collaboration. &ldquo;Right now, the earth is full of refugees, human and not, without refuge. So, I think a big new name, actually more than one name, is warranted&ldquo;, says Haraway.<span class="Apple-converted-space">&nbsp;</span></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Togetherness begins with the cognitive revolution of homo sapiens seventy-thousand years ago. What did we pick up? [38] Did the idea of human come from some inhuman entity? Seventy thousand years ago our ancestors were insignificant animals. Their impact on earth was not much greater than that of jellyfish. Today, in contrast, we control this planet to an extent where most of the reserves of the earth have been &ldquo;drained, burned, depleted, poisoned, exterminated, and otherwise exhausted.&rdquo; [39] How did we come from there to here? How did we come from insignificant, procrastinating apes &mdash; that we still are in certain moments &mdash; only minding there own habitat, into a species ruling planet earth? [40] Cognitive evolution for humankind! Still, we have no idea why and how we gained those cognitive abilities, we can leave those narratives to fiction without any tension, but whatever it was, it made us want to believe that there is something more about us. About our physical abilities and our brains that make us so superior to any other organism on this planet.</p>
+						<p>&nbsp;</p>
+						<p>&rdquo;The truth is, that on an individual, physical level, we are still similar to chimpanzees. Put one chimpanzee against one modern human on a lonely island and see who&rsquo;s going to survive.&rdquo; <br />&mdash; Yuval Noah Harari</p>
+						<p><span class="Apple-converted-space">&nbsp;&nbsp; &nbsp;</span></p>
+						<p>A difference between humans and all other animals is not to be found on an individual level, it&rsquo;s on the collective level. There are animals like bees and ants that can cooperate in large numbers, but it is very rigid. &ldquo;There is only one way how a bee-hive works,&rdquo; explains Yuval Noah Harari, &ldquo;they cannot execute the queen and establish a republic of bees or communist dictatorship of worker-bees.&rdquo; [42] Social mammals, wolves, elephants, dolphins, alike to chimpanzee can co-operate much more flexible. What they&rsquo;re doing different is, being in small numbers. Thus, flexible cooperation is based on intimate knowledge. What kind of chimpanzee are you? Are you nice? Or evil? If I do not know you, how can I cooperate with you? [43]</sup></p>
+						<p>&nbsp;</p>
+						<p>&ldquo;One versus one or ten versus ten chimpanzees might be better than us, but if you put 10.000 humans versus 10.000 chimpanzees, the humans will win easily. For the simple reason that chimpanzees cannot cooperate at all. Imagine 100.000 chimpanzees running into Oxford Street or Wembley Stadium [&hellip;] you will get complete madness. In contrast, humans usually gather there in tens of thousands and what we get [&hellip;] are extremely sophisticated networks of cooperation. All the huge achievements of humankind throughout history [&hellip;] have been based on the ability to cooperate in a flexible.&rdquo; &mdash; Yuval Noah Harari</p>
+						<p>&nbsp;</p>
+						<p>This example given by Harari, explains how irrelevant one certain way of enactment is, as long as a group is unable to organize itself in bigger numbers with fairness and respect for differences. Probably we have to accept multiple approaches of organizing populations and groups of people. The social construct itself &mdash; whether it is a government or an art school &mdash; is a thing we imagine, a structure we believe in to create a flow altogether. Even though we achieved incredible wealth, knowledge and life standards by doing so &mdash; which we easily forget about &mdash; simultaneously we achieve major collapses locally as well as globally. These collapses we&rsquo;re facing as upright, walking humans, we don&rsquo;t find easy to engage with since they remind us that chaos and mess exist, bending our comfort zone. Problems coming with it are existent to unknown places, humans, and non-humans that are outside of our daily routines. Exactly this abyss, the darkness, is the common ground that needs to be encountered, to find the substance for creating new togetherness in the process of recreating wealth and quality, while respecting difference. When creating new environments and new routines we must pay attention to the critters we had found in the darkness different to us. Those who&rsquo;ve been discriminated outside the heteronormative canvas, whether it is for disposition within their gender,<span class="Apple-converted-space">&nbsp; </span>sexuality,<span class="Apple-converted-space">&nbsp; </span>performance,<span class="Apple-converted-space">&nbsp; </span>religion or origin &mdash; they might be able to fix it on their own, but it is an achievement that needs to be done and gone through collectively as well. Whether it be in small numbers or not. Likewise to our ancestors seventy-thousand years ago, drifting through landscapes, encountering new creatures, we won&rsquo;t have an idea where this is going. It is an instinct for new horizons that made humans the explorers of the continents, wandering the unknown, overcoming their limitations, navigating and mutating over a few thousand years towards a composition, multiple in itself, we call modern homo sapiens by now. We must give refuge to new ideas and the bodies and minds that carry them. This movement starts by giving shelter and must grow inside humans in the first place. It has to emerge within the interconnections and interactions of this fleshy material we started to believe in seventy thousand years ago.</p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Can Pangea be the old and new role model for unity and difference? A super-continental repair, according to science [44]</sup> and other thinkers, is an event that will happen again in a few million years in the future. Imagining Pangea as a knitting pattern for social progress, will this event make humans conquer new horizons again?<span class="Apple-converted-space">&nbsp;</span></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Repair ends where exchange and replacement begins. It is a process to gain distance to some-thing that is out of reach. Repair theoretically means to fix what is no longer capable or available. So the function of repair leads to change. [45]</sup> Kader Attia, born 1970, says &ldquo;its meaning is to connect as well &ndash; people, time, things &ndash; and this is why each and any global history of humankind must dedicate its profound attention towards this seemingly simple gesture and matter of course.&rdquo; [45]</sup><span class="Apple-converted-space">&nbsp;</span></p></p>
+						<div class="footnotes">
+							29	A term coined by Friedrich Nietzsche in Also Sprach Zarathrustra (1885)	&mdash; transl.: Superman / Johann Wolfgang von Goethe refers to the word &Uuml;bermensch as a human form of idiocy and fallacy
+							30	Haraway, Donna (2016): Staying with the Trouble: Making Kin in the Chthulucene. Duke University Press &mdash; p.160<br>
+							31,32	Haraway, Donna (2016): Staying with the Trouble: Making Kin in the Chthulucene. Duke University Press &mdash; p.159<br>
+							33	Morton, Timothy (2016): The pnek files: Dark Ecology. Retrieved from: http://www.pnek.org/wp/wpcontent/uploads/2016/03/Pnek-Files-Dark-Ecology-2.pdf<br>
+							34	Haraway, Donna (2016): Staying with the Trouble: Making Kin in the Chthulucene. Duke University Press &mdash; p.160<br>
+							35	Haraway, Donna (2016): Staying with the Trouble: Making Kin in the Chthulucene. Duke University Press &mdash; p.159<br>
+							36	Haraway, Donna (2016): Staying with the Trouble: Making Kin in the Chthulucene. Duke University Press &mdash; p.159<br>
+							37	cf. Interkultur Ruhr, Pangaea (https://interkultur.ruhr/)<br>
+							38,40	cf. Harari, Yuval Noah (2015): Why humans run the world. Retrieved from https://www.youtube.com/watch?v=nzj7Wg4DAbs&t=31s<br>
+							39	Moore, Jason (2015): Capitalism in the Web of Life, Ecology and the Accumulation of Capital. Verso<br>
+							41	2001: Space Odyssey, 1968, Stanley Kubrick / The Thing From Another World, 1951, Howard Hawks<br>
+							42,43	cf. Harari, Yuval Noah (2015): Why humans run the world. Retrieved from https://www.youtube.com/watch?v=nzj7Wg4DAbs&t=31s
+							44	NASA (2000): Continents in Collision: Pangea Ultima. Retrieved from NASA Sciences https://science.nasa.gov/science-news/science-at-nasa/2000/ast06oct_1
+							45, 46	Gruzinski, Serge (2012): Kader Attia: The Repair. Retrieved from Universes in Universe https://universes.art/de/nafas/articles/2012/kader-attia-documenta/
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+
+			<div class="split seven">
+				<div class="content">
+					<div id="abstract">
+						<div class="header">
+							<h2 class="blur">ASSEMBLING THE NEW NORMAL</h2>
+							<img src="http://localhost:8888/three.js-master/driftcarefully_copy/assets/img/Dymaxion[1].jpg" style="width:75%;margin-left:12.5%;margin-bottom:5%;" alt="">
+							<div class="subtitle" style="width:75%;margin-left:12.5%;margin-bottom:10%;">Pangea Ultima</div>
+						</div>
+
+
+
+						<p><quote>&ldquo;Nothing seems to be more prominent about human life than its wanting to </br>understand all and put everything </br>together.&rdquo; &mdash; Richard Buckminster Fuller</quote></p><p>Cognitive evolution initiated an expansion of the mind. We found pleasure in making use of our environments. Pre-humans made collages and assemblages of leftovers found in their so far limited habitats. To start somewhere, these assemblages were made of combining several materials such as bones or rocks or wood or any other seemingly or possibly useful thing. It is the act of shaping your own tools and thoughts, which is the becoming of a human. In that context becoming an author of humankind and evolution. So what can we learn from that very simple gesture of combing one thing with another? Did the cognitive evolution transform the procrastinating, smugly ape into a conscious, autonomous, radical operator dissecting its habitat? Does &lsquo;to re-assemble&rsquo; necessarily mean to create a better version of their habitat and, since humans are the authors, of themselves?</p>
+						<p>By making use and rethinking their environments and giving them new functions, pre-humans gave their habitats new sense instead of taking them for granted. With each assembling things, human got better and better in finding the right ways. Ways for hunting down deer, making fire, how to fight. Ways for making settlements, crossing waters, creating weapons. By finding the parts to do so and shaping new tools, humans realized freedom urging them to do and re-do, think and re-think. A spirit that has been programmed into the flesh and initiated the expansion of the world, by simply creating it. This is what humans are, unfolding their potential to grow and expanding their minds by creating new possibilities. Creators, inventors, writers, explorers, artists, alchemists by nature, capable of coping with their given limits. In the act of creating or thinking humans become post-human: &ldquo;autonomous, rational, capable of&nbsp;free will, and unified in itself as the apex of&nbsp;existence.&rdquo; This freedom of liberating from limitations and boundaries is not given to everyone. It is a kind of prepositioned gift, an unwritten univocity [47]</sup>about our togetherness. Still, it is something we have to find and find again, create and reproduce every day. By doing so, we acknowledge how freedom and individuality are achievements, that do not count as universal for everyone. As soon as we understand humankind as an assembled, historical, geological force, we&rsquo;re one step closer for making an approach to understand our present.<span class="Apple-converted-space">&nbsp;</span></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Overpopulation will create new struggles for freedom and implementation. We cannot overgrow ourselves. At this stage, we have to think about how we assemble our togetherness, instead of expressing our belongingness and otherness with walls. Recent studies have shown that the human population is growing bigger and bigger. The current world population is at 7.3 billion; by 2030 it will reach 8.5 billion and 9.7 billion in 2050. [48] Within the year 2100, the Blue Marble will be populated by 11.2 billion humans, threatening the ecology of the planet. The number of people on this planet will make demands that cannot be made without immense damage in one or the other way.<span class="Apple-converted-space">&nbsp;</span></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Consecutively the further rise of humankind will create new trouble within social environments. So how should we reconfigure our networks? That a society organized in a very rigid manner does not create happiness, can be read in history books. Through 20th century humankind has made several efforts to create such rigid patterns. They all failed. Working the other way around, to collaborate in small numbers, basing social mechanism on intimate knowledge, does not work either. The earliest 21st century is plagued by separatist and nationalist movements, creating emotional narratives, drifting apart from each other. Europe is stumbling. Religion and ethnic nationalism are still important forces regulating world politics. [49] Immigration crisis fuels the fortification of national borders, plebiscites giving a voice to skepticism and misleading romanticism, bringing back national loyalism in unexpected dimensions. [50] As consequence, minorities are asked scientifically illogical, often meaningless questions &ldquo;Where do you live?&rdquo; &ldquo;What are you?&rdquo; &ldquo;What religion?&rdquo; &ldquo;What race?&rdquo; &rsquo;&rdquo;What nationality?&rdquo;. Unfortunately, all of these questions are thought to be logical by the pattern we have created and lived in. [51] Since they belong to discriminatory categories the correlation is as simple as disappointing. In 1969 Buckminster Fuller stated: &ldquo;By the twenty-first century it either will have become evident to humanity that these questions are absurd and anti-evolutionary or men will no longer be living on Earth.&rdquo;<span class="Apple-converted-space">&nbsp;</span></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Denmark 2018: The Government plans to isolate unwanted immigrants on a small island and separate &lsquo;ghetto children&rsquo; for at least 25 hours from their families to hammer in some basic Danish values &ndash; like handshakes and money? Further Denmark changed its sex education with the goal of solving the problem with birth rates. It illustrates pretty how afraid one can be of opening up rigid values. This process certainly creates vulnerability, but it also draws conclusions, which re-assembles identities, re-assembles standards and re-assembles a society, putting it in new boots. It is necessary to acknowledge the fear of immigrants and people who consciously do not want to have kids. Ethnic nationalism and racial purity phantasies, narratives of totality, will recreate stories of romantic procreation and discussions on birthrates of nationalities to become extinct. [52] Fuelling these old perspectives cannot help creating a new forward and positive drift into an overpopulated, climate-changing future. The illogical fear of implementing immigrants, that could compensate the so-called dysfunctions of a population &mdash; low birthrates, lack of youth &mdash; is a fear of being in general, a fear of thinking and creating new modes of operating.<span class="Apple-converted-space">&nbsp;</span></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Minorities and refugees are troubled by the burden of representation. In the essay on <em>New Ethnicities</em>, Stuart Hall is pointing out a shift in black politics that must overcome binary opposition and substitutions. Creating this shift in the politics of representation, it must accept the marginalization of the black experience as something that can be put in boxes as objects of desire. In these boxes, rather space, where blacks &ldquo;have typically been the objects&rdquo; [53] their experience has been oversimplified to a stereotypical extent. Rather, than being the object of representation, creating &ldquo;fetishization, objectification and negative figuration&rdquo; [54] it must be the subject of discussion. According to Hall a refreshing discourse on black politics must cross questions of sexuality as well, to overcome its binary language. The binary here means a constant shift, but also a loop between two perspectives that&rsquo;ll never change the actual problems in representation politics. Representation is a slippery term though when acknowledging the difference and ambivalence between identification and desire. [55] According to Hall, the process of identification is usually an oversimplified process where a bunch of &lsquo;selves&rsquo; (parents, siblings, friends, strangers) and the entanglement with it over time defines what we either are or not. By crossing questions of gender and sexuality, Hall remarks that the political discourse suddenly becomes more complex then we thought and imagined. Taking racism as one pole of the binary, the reversal of it &mdash; call it multiculturalism or anti-racism &mdash; has necessarily become the counterpart. It is a simple strategy of reversal and opposition to create another perspective on otherness and belongingness. By doing so it created a system of representation, rather a scale of representation, that takes on the black subject, not any other than as a noble savage or the violent avenger [56]</sup>&mdash; Hall points out the problem within the political discourse: the assumption that the existing categories of gender and sexuality would ever stay the same, remaining &ldquo;fixed and secured&rdquo;. [57]</sup></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>The problem here will still be the question on which language we should agree upon to make this dialogue possible. If they are not speaking the language of the nation they&rsquo;ve been allocated, how can a discourse be possible taking into account all its differentiated representative subjects that make a population? More likely they will stay for themselves when lacking the configuration of a common language. [58]</sup></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>Will human be simply generous and empathetic enough to make an effort for their fellow humans and &lsquo;other&rsquo; new neighbors? To open the discourse and put away the white masks that the black-skinned have to put on in order to integrate as noble savages &mdash; and if not being rejected as violent avengers. European humanism is defined by a collectivist spirit that aims at equality and global wealth, leading to a quality of life that equals chances for anyone. Can we truly claim that this is true anymore? Can Europe as we know it still be a model for a politics of representation?</p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>According to the writings of Frantz Fanon, Europe has never been a model for inclusive politics: &ldquo;Two centuries ago, a former European colony decided to catch up with Europe. It succeeded so well that the United States of America became a monster, in which the taints, the sickness and the inhumanity of Europe have grown to appalling dimensions.&rdquo; [60] In his conclusions on Europe, he is taking her apart. Fanon goes fiercely at her by saying that she &ldquo;lives at such a mad, reckless pace that she has shaken off all guidance and all reason, and she is running headlong into the abyss&rdquo;. [61] His recommendation is to &ldquo;keep away&rdquo; [62]</sup> from her. Goodbye Europe?</p>
+						<p>What Fanon wrote in 1965 correlates pretty well with Ivan Krastev&rsquo;s essayistic piece After Europe in 2017. Krastev ends the book with a rather doubtful, skeptical statement: &ldquo;Surviving has a certain resemblance with writing a poem: not even the poet knows how it ends before it ends.&rdquo; [58]</sup></p>
+						<p><span class="Apple-converted-space">&nbsp; &nbsp; &nbsp; &nbsp; </span>If there will be a new perspective, that changes the discourse of togetherness, it needs to watch the world differently. It needs to embody curiosity, a wondering gaze at beauty and diversity of the human. If there even should be a new normal, it should not manifest itself in materialism. Rather it has to be a school of thought that celebrates young folks who decide for whatever they truly love, not adding to the problematic relationship Anthropos has developed with Gaia &mdash;<span class="Apple-converted-space">&nbsp; </span>a new generation that does not add trouble to a time that is already in trouble.</p>
+						<p>&acute;</p>
+						</div>
+										</p>
+										<div class="footnotes">
+											47	Deleuze, Gilles & Guattari, Felix (1988): A Thousand Plateaus, Capitalism and Schizophrenia. Merve<br>
+											48	United Nations, DESA (2015): World population projected to reach 9.7 billion by 2050. Retrieved from: http://www.un.org/en/development/desa/news/population/2015-report.html<br>
+											49,50	Krastev, Ivan (2017): After Europe. Suhrkamp Verlag &mdash; p.15<br>
+											51	cf. Buckminster Fuller, Richard (1968): Operating Manual For Spaceship Earth. Amereon Limited<br>
+											52	Haraway, Donna (2016): Staying with the Trouble: Making Kin in the Chthulucene. Duke University Press &mdash; p.164<br>
+											53,54	Hall, Stuart (1988): Difference and Contestation, New Ethnicities. Retrieved from: https://www.amherst.edu/media/view/88663/original/Hall%2B-%2BNew%2BEthnicities.pdf &mdash; p. 442<br>
+											55,56,57	cf. Hall, Stuart (1988): Difference and Contestation, New Ethnicities. Retrieved from: https://www.amherst.edu/media/view/88663/original/Hall%2B-%2B-New%2BEthnicities.pdf<br>
+											58	Spivak, Gayatri (1988): Can the Subaltern Speak? Retrieved from Turia http://www.turia.at/pdf/inh_spivak.pdf &mdash; p.8,9<br>
+											59	Bartlett, Jamie Birdwell & Jonathan & Litter, Mark (2011): The New Face of Digital Populism. Retrieved from:https://www.demos.co.uk/project/the-new-face-of-digital-populism/<br>
+											60,61,62	Fanon, Frantz (1961): The Wretched of The Earth. GROVE<br>
+											63	Krastev, Ivan (2017): After Europe. Suhrkamp Verlag &mdash; p.15
+
+										</div>
+
+
+
+					</div>
+				</div>
+				<div class="split eight">
+					<div class="content">
+						<div id="abstract">
+							<div class="header">
+								<h2 class="blur">EMBRACING THE OCTOPUS</h2>
+								<img src="http://localhost:8888/three.js-master/driftcarefully_copy/assets/img/07-elora-egbert-story.jpg" style="width:75%;margin-left:12.5%;margin-bottom:5%;" alt="">
+								<div class="subtitle" style="width:75%;margin-left:12.5%;margin-bottom:10%;">Pangea Ultima</div>
+							</div>
+
+
+
+							<p>How can we make Kin and re-familiarise with our surroundings in a re-world-ing manner? If all the stories we tell are too big or too small [64], how can we challenge ourselves to make kinship, to familiarise with the other?<br />&ldquo;Society assumes that specialization is natural, inevitable, and desirable. Yet in observing a little child, we find it is interested in everything and spontaneously apprehends, comprehends, and coordinates an ever expanding inventory of experiences. Children are enthusiastic planetarium audiences.&rdquo; [65] In 1968 the image of Earthrise became an allegory for the concept of Spaceship Earth, in which the American architect, system theorist and futuristic rebel Robert Buckminster Fuller calls for international cooperation of global importance. In his book Operating Manual For Spaceship Earth, he compares planet earth with an aircraft on its flight through space. An aircraft with limited resources that cannot be scaled up like business models. While his remarks on society as a clutter of specialists without curiosity for the extension of their practice, evoke somewhat of a critique upon the dimensions to the subject, it might call for different forms of intelligence and mode of organizing at the same time.<br />Three-quarters of the brain appears in its arms. It does not have a central nervous system. Does it think though? Its denial of hierarchical formation of its thinking organisms is defying a standardization of perception. Its learning ability does not correspond to any form of organized principles shaping a didactic framework. It comes, it goes, it assembles thoughts and sensations. The octopus is a friendly monster operating in the darkness. Yet it is just another creature and visitor on this planet and evolved from the same insignificant era of jellyfish, where human has once started to grow. What distinguishes the octopus from other forms of advanced intelligence is the distribution of its brain: three quarters are in its tentacles, yet it is still part of the body. Its decentralized perception and intelligence is unlike any other creature, being an inhabitant of the ocean its senses work beyond and without language. Still, the octopus is able to solve mazes, open jars and make use of tools, which emphasizes a perceptive inventiveness, to a degree it becomes interesting for using its mode of operation for our own thinking. When the octopus thinks and senses its environment, whatever goal or achievement it might pursue, it happens in total autonomy. By doing so, it is capable of assembling several sensations to one image, without the necessity of depending on its head too much. It is aware of the difference, the heterogeneity of its sensations. It might be confusing to the human organism having a centralized brain and central nervous system&mdash;but in doing so the multi-thinking organism with its way of thinking closest to that of an alien intelligence, shows the world the concept of tentacular thinking: organized in decentralized units, that either carry out their activities on their own or coordinate among themselves without the need of the head. Tentacular thinking makes an approach of processing multiple meanings and simultaneity of languages. It is the embodiment of differential thinking, of sensations crossing each other, of partial thoughts being a total one without being a totality. [65] It must be a curious, tentacular-thinking mind, as an agent to reassemble and create the discourses we need to have for unity and difference. We must think about, which thought thinks thoughts, to create the take we want to have on this world, whether it be individual or collectively, knitting past and present together. We must think.</p>
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+							<div class="footnotes">
+								64	cf. Buckminster Fuller, Richard (1968): Operating Manual For Spaceship Earth. Amereon Limited<br>
+								65	Buckminster Fuller, Richard (1968): Operating Manual For Spaceship Earth. Amereon Limited<br>
+								66	Haraway, Donna (2016): Tentacular Thinking: Anthropocene, Capitalocene, Chthulucene. Retrieved from E-Flux https://www.e-flux.com/journal/75/67125/tentacular-thinking-anthropocene-capitalocenechthulucene/<br>
+							</div>
+
+
+
+						</div>
+					</div>
+				</div>
+				<div class="split nine">
+					<div class="content">
+						<div id="abstract">
+							<div class="header">
+								<h2 class="blur">HOW WE MIGHT CONCLUDE</h2>
+								<img src="http://localhost:8888/three.js-master/driftcarefully_copy/assets/img/download.jpg" style="width:75%;margin-left:12.5%;margin-bottom:5%;" alt="">
+								<div class="subtitle" style="width:75%;margin-left:12.5%;margin-bottom:10%;">Pangea Ultima</div>
+							</div>
+
+
+
+							<p>How can we make Kin and re-familiarise with our surroundings in a re-world-ing manner? If all the stories we tell are too big or too small [64], how can we challenge ourselves to make kinship, to familiarise with the other?<br />&ldquo;Society assumes that specialization is natural, inevitable, and desirable. Yet in observing a little child, we find it is interested in everything and spontaneously apprehends, comprehends, and coordinates an ever expanding inventory of experiences. Children are enthusiastic planetarium audiences.&rdquo; [65] In 1968 the image of Earthrise became an allegory for the concept of Spaceship Earth, in which the American architect, system theorist and futuristic rebel Robert Buckminster Fuller calls for international cooperation of global importance. In his book Operating Manual For Spaceship Earth, he compares planet earth with an aircraft on its flight through space. An aircraft with limited resources that cannot be scaled up like business models. While his remarks on society as a clutter of specialists without curiosity for the extension of their practice, evoke somewhat of a critique upon the dimensions to the subject, it might call for different forms of intelligence and mode of organizing at the same time.<br />Three-quarters of the brain appears in its arms. It does not have a central nervous system. Does it think though? Its denial of hierarchical formation of its thinking organisms is defying a standardization of perception. Its learning ability does not correspond to any form of organized principles shaping a didactic framework. It comes, it goes, it assembles thoughts and sensations. The octopus is a friendly monster operating in the darkness. Yet it is just another creature and visitor on this planet and evolved from the same insignificant era of jellyfish, where human has once started to grow. What distinguishes the octopus from other forms of advanced intelligence is the distribution of its brain: three quarters are in its tentacles, yet it is still part of the body. Its decentralized perception and intelligence is unlike any other creature, being an inhabitant of the ocean its senses work beyond and without language. Still, the octopus is able to solve mazes, open jars and make use of tools, which emphasizes a perceptive inventiveness, to a degree it becomes interesting for using its mode of operation for our own thinking. When the octopus thinks and senses its environment, whatever goal or achievement it might pursue, it happens in total autonomy. By doing so, it is capable of assembling several sensations to one image, without the necessity of depending on its head too much. It is aware of the difference, the heterogeneity of its sensations. It might be confusing to the human organism having a centralized brain and central nervous system&mdash;but in doing so the multi-thinking organism with its way of thinking closest to that of an alien intelligence, shows the world the concept of tentacular thinking: organized in decentralized units, that either carry out their activities on their own or coordinate among themselves without the need of the head. Tentacular thinking makes an approach of processing multiple meanings and simultaneity of languages. It is the embodiment of differential thinking, of sensations crossing each other, of partial thoughts being a total one without being a totality. [65] It must be a curious, tentacular-thinking mind, as an agent to reassemble and create the discourses we need to have for unity and difference. We must think about, which thought thinks thoughts, to create the take we want to have on this world, whether it be individual or collectively, knitting past and present together. We must think.</p>
+							<p>&nbsp;</p>
+							<p>&nbsp;</p>
+							<div class="footnotes">
+								64	cf. Buckminster Fuller, Richard (1968): Operating Manual For Spaceship Earth. Amereon Limited<br>
+								65	Buckminster Fuller, Richard (1968): Operating Manual For Spaceship Earth. Amereon Limited<br>
+								66	Haraway, Donna (2016): Tentacular Thinking: Anthropocene, Capitalocene, Chthulucene. Retrieved from E-Flux https://www.e-flux.com/journal/75/67125/tentacular-thinking-anthropocene-capitalocenechthulucene/<br>
+							</div>
+
+
+
+						</div>
+					</div>
+				</div>
+
+				<div class="split acknowledgement">
+					<img src="http://localhost:8888/three.js-master/driftcarefully_copy/assets/img/DCACBS_horizontal_globe.png" style="width:125%;"alt="">
+					<br><br><br><br><br><br><br><br><br><br><br><br>
+					<br><br><br><br><br><br><br><br><br><br><br><br>
+					<br><br><br><br><br><br><br><br><br><br><br>
+									<p>Assembled by: Jan Husstedt</p>
+									<p>
+									Supervision Writing: F&uuml;sun T&uuml;retken,</br>
+									Dirk Vis (Second Opinion)
+									</p>
+									<p>
+									Supervision Design: Matthias Kreutzer</br>
+									(Our Polite Society)
+									</p>
+									<p>
+									Supervision Code: Jan Robert Leegte,</br>
+									Silvio Lorusso
+									</p>
+
+									<p><quote>Special Thanks to F&uuml;sun T&uuml;retken for leading me through this thesis, Matthias Kreutzer for the good and encouraging words, Dirk Vis, Jan Robert Leegte and Silvio Lorusso for simplifying the process.</quote></p>
+									<br><br><br>
+									<p>Fonts in Use: Favorit (Dinamo), Favorit Lining
+									(Dinamo), Favorit Mono (Dinamo), Ginto Nord
+									(Dinamo), Ginto Normal (Dinamo) </p><p> <quote>
+									Special Thanks to Florian Harb & <br> Johannes Breyer </quote></p>
+				</div>
+
+				<div class="split2 bibliography">
+
+									<h1>Bibliography</h1>
+									</br></br>
+									<p class="p1">Adams Bellows, Henry (1936): The Poetic Edda. Edwin Mellen Press Ltd</p>
+									<p class="p1">Bartlett, Jamie<span class="Apple-converted-space">&nbsp; </span>Birdwell &amp; Jonathan &amp; Litter, Mark (2011): The New Face of Digital Populism. Retrieved from: https://www.demos.co.uk/project/the-new-face-of-digital-populism/</p>
+									<p class="p1">Beckett, Andy (2017): Accelerationism: How a fringe philosophy predicted the future we live in. Retrieved from The Guardian https://www.theguardian.com/world/2017/may/</br>11/accelerationism-how-a-fringe-philosophy-predicted-the-future-we-live-in</p>
+									<p class="p1">Bennhold, Kathrin (2018): Chemnitz Protest Show New Strength of Germany&rsquo;s Far Right. Retrieved from New York Times https://www.nytimes.com/2018/08/30/world/europe/germany-neo-nazi-protests-chemnitz.html</p>
+									<p class="p1">Buckminster Fuller, Richard (1968): Operating Manual For Spaceship Earth. Amereon Limited</p>
+									<p class="p1">Cohen, Roger (2016): The Politics of Backlash. Retrieved from NY Times https://www.nytimes.com/2016/04/05/opinion/the-politics-of-backlash.html</p>
+									<p class="p1">Cadwalladr, Carole (2013): Stewart Brand&rsquo;s Whole Earth Catalog, the book that changed the world. Retrieved from The Guardian https://www.theguardian.com/books/2013/may/05/stewart-brand-whole-earth-catalog</p>
+									<p class="p1">Deleuze, Gilles &amp; Guattari, Felix (1988): A Thousand Plateaus, Capitalism and Schizophrenia. Merve</p>
+									<p class="p1">Erlanger, Olivia &amp; Govela, Luis Ortega (2018): Garage. Massachusetts Institute of Technology Press</p>
+									<p class="p1">Fareiss, Lukas (2015): Der Traum von der Reise zum Mond. Spector Books</p>
+									<p class="p1">Gruzinski, Serge (2012): Kader Attia: The Repair. Retrieved from: https://universes.art/de/nafas/articles/2012/kader-attia-documenta/</p>
+									<p class="p1">Hall, Stuart (1988): Difference and Contestation, New Ethnicities. Retrieved from: https://www.amherst.edu/media/view/88663/original/Hall%2B-%2BNew%2BEthnicities.pdf</p>
+									<p class="p1">Harari, Yuval Noah (2015): Why humans run the world. Retrieved from https://www.youtube.com/watch?v=nzj7Wg4DAbs&amp;t=31s</p>
+									<p class="p1">Haraway, Donna (2016): Staying with the Trouble: Making Kin in the Chthulucene. Duke University Press</p>
+									<p class="p1">Haraway, Donna (2016): Tentacular Thinking: Anthropocene, Capitalocene, Chthulucene. Retrieved from E-Flux https://www.e-flux.com/journal/75/67125/tentacular-thinking-anthropocene-capitalocene-chthulucene/</p>
+									<p class="p1">Hawks, Howard (Screenplay) Christian Nyby (Director)(1951): The Thing From Another World. [Film] RKO Radio Pictures</p>
+									<p class="p1">Interkultur Ruhr (2018): 7. Kulturkonferenz Ruhr: Notizen einer Teilnehmerbeobachtung. Retrieved from: https://interkultur.ruhr</p>
+									<p class="p1">Jansen, Jos (2018): Universe / Facts in the post-truth era. FineBooks (Jos Morree)</p>
+									<p class="p1">Khan Academy (2011): Pangaea | Earth geological and climatic history | Cosmology &amp; Astronomy. [Video] Retrieved from:https://m.youtube.com/watch?v=axB6uhEx628</p>
+									<p class="p1">Klossowski de Rola, Stanislas (2013): Alchemy, The Secret Art. Thames &amp; Hudson</p>
+									<p class="p1">Krastev, Ivan (2017): After Europe. Suhrkamp Verlag</p>
+									<p class="p1">Kubrick, Stanley (Director &amp; Producer)(1968): 2001: A Space Odyssey. Metro-Goldwyn-Mayer</p>
+									<p class="p1">Laboria Cuboniks (2015): Xenofeminism, <br />A Politics for Alienation. Retrieved From LC http://www.laboriacuboniks.net/20150612-xf_layout_web.pdf</p>
+									<p class="p1">Lauwaert, Maaike &amp; van Westrenen, Francine (2017): Facing Value, Radical Perspectives from the Arts. VALIZ &amp; STROOM DEN HAAG</p>
+									<p class="p1">McKay, Robin (2011): A Brief History of Geotrauma or: The Invention of Negarestani.[Video] Retrieved from archive.org</p>
+									<p class="p1">Moore, Jason (2015): Capitalism in the Web of Life, Ecology and the Accumulation of Capital. Verso</p>
+									<p class="p1">Morton, Timothy (2016): The pnek files: Dark Ecology. Retrieved from: http://www.pnek.org/wp/wp-content/uploads/2016/03/Pnek-Files-Dark-Ecology-2.pdf</p>
+									<p class="p1">O&rsquo;Donoghue, Darragh (2013): L&rsquo;&Acirc;ge d&rsquo;Or. Retrieved from Senses Of Cinema http://sensesofcinema.com/2013/cteq/lage-dor/</p>
+									<p class="p1">Parikka, Jussi (2015): A Geology of Media (Electronic Mediations). University of Minnesota Press</p>
+									<p class="p1">Russell, John (1976): Max Ernst, Catalytic Figure in 20th Century Art, Dies. Retrieved from New York Times Archive https://archive.nytimes.com/www.nytimes.com/</br>learning/general/onthisday/bday/0402.html</p>
+									<p class="p1">Said, Edward (1978): Orientalism. Routledge</p>
+									<p class="p1">Spivak, Gayatri (1988): Can the Subaltern Speak? Retrieved from Turia http://www.turia.at/pdf/inh_spivak.pdf</p>
+									<p class="p1">Transmediale (2018): Outro. [Instagram Story Highlight] Retrieved from Instagram Transmediale https://www.instagram.com/stories/highlights/17886480583271847/?hl=de</p>
+									<p class="p1">United Nations, DESA (2015): World population projected to reach 9.7 billion by 2050. Retrieved from: http://www.un.org/en/development/desa/news/population/2015-report.html</p>
+
+				</div>
+
+
+
+
+
+			</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>
